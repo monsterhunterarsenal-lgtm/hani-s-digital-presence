@@ -39,6 +39,17 @@ export const About = () => {
         </div>
 
         <div className="lg:col-span-7 space-y-10">
+          <Reveal delay={0.05}>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[4/5] glass overflow-hidden relative group">
+                <img src={aboutOffice} alt="Hani Hebashy at the Tbilisi office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div className="aspect-[4/5] glass overflow-hidden relative group mt-8">
+                <img src={aboutGlass} alt="Hani Hebashy in modern office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+            </div>
+          </Reveal>
+
           <Reveal delay={0.1}>
             <p className="font-display italic text-2xl md:text-3xl leading-snug text-foreground/90 border-l-2 border-primary pl-6 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-6">
               {t.about.lead}
