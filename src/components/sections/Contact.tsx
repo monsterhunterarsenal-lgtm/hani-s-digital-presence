@@ -32,7 +32,7 @@ export const Contact = () => {
           <Reveal delay={0.15}>
             <div className="space-y-4">
               <a
-                href="https://wa.me/0000000000"
+                href="https://wa.me/995577187750"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-5 glass hover:border-primary transition-all group"
@@ -42,7 +42,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{t.contact.whatsapp}</div>
-                  <div className="text-foreground group-hover:text-primary transition-colors">+00 000 000 0000</div>
+                  <div className="text-foreground group-hover:text-primary transition-colors">+995 577 18 77 50</div>
                 </div>
               </a>
 
