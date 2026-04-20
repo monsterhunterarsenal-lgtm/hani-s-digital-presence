@@ -47,7 +47,7 @@ export const Media = () => {
             <Reveal key={i} delay={i * 0.06}>
               <div className="bg-background h-full flex flex-col min-h-[260px] hover:bg-surface-2 transition-colors duration-500 group">
                 <div className="aspect-[4/3] overflow-hidden relative">
-                  <img src={pressImages[i % pressImages.length]} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                  <ZoomableImage src={pressImages[i % pressImages.length]} alt={item.title} caption={`${item.source} — ${item.title}`} />
                 </div>
                 <div className="p-6 flex flex-col gap-2">
                   <div className="text-[10px] uppercase tracking-[0.3em] text-primary">{item.source}</div>
