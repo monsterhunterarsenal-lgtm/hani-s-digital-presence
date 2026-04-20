@@ -1,5 +1,6 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import { ZoomableImage } from "@/components/Lightbox";
 import aboutPortrait from "@/assets/about-portrait.jpeg";
 import aboutOffice from "@/assets/about-office.jpeg";
 import aboutGlass from "@/assets/about-glass.jpeg";
@@ -18,15 +19,10 @@ export const About = () => {
 
           <Reveal delay={0.15}>
             <div className="aspect-[4/5] max-w-sm glass shadow-deep relative overflow-hidden group">
-              <img
-                src={aboutPortrait}
-                alt="Hani Hebashy portrait"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              <div className="absolute -top-px -left-px w-6 h-6 border-t border-l border-primary" />
-              <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-primary" />
+              <ZoomableImage src={aboutPortrait} alt="Hani Hebashy portrait" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute -top-px -left-px w-6 h-6 border-t border-l border-primary pointer-events-none" />
+              <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-primary pointer-events-none" />
             </div>
           </Reveal>
 
@@ -41,11 +37,11 @@ export const About = () => {
         <div className="lg:col-span-7 space-y-10">
           <Reveal delay={0.05}>
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[4/5] glass overflow-hidden relative group">
-                <img src={aboutOffice} alt="Hani Hebashy at the Tbilisi office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div className="aspect-[4/5] glass overflow-hidden relative">
+                <ZoomableImage src={aboutOffice} alt="Hani Hebashy at the Tbilisi office" />
               </div>
-              <div className="aspect-[4/5] glass overflow-hidden relative group mt-8">
-                <img src={aboutGlass} alt="Hani Hebashy in modern office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div className="aspect-[4/5] glass overflow-hidden relative mt-8">
+                <ZoomableImage src={aboutGlass} alt="Hani Hebashy in modern office" />
               </div>
             </div>
           </Reveal>

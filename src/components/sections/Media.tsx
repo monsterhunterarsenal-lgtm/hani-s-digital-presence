@@ -1,5 +1,6 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import { useLightbox, ZoomableImage } from "@/components/Lightbox";
 import forbes from "@/assets/media-forbes.jpeg";
 import magazineCover from "@/assets/media-magazine-cover.jpeg";
 import phoneForbes from "@/assets/media-phone-forbes.jpeg";
@@ -23,7 +24,12 @@ export const Media = () => {
 
         {/* Featured press image */}
         <Reveal>
-          <div className="aspect-[16/9] glass mb-12 relative overflow-hidden group">
+          <button
+            type="button"
+            onClick={() => open(forbes, "Hani Hebashy featured in Forbes International")}
+            className="aspect-[16/9] glass mb-12 relative overflow-hidden group block w-full text-left cursor-zoom-in"
+            aria-label="Open Forbes feature in lightbox"
+          >
             <img src={forbes} alt="Hani Hebashy featured in Forbes International" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
@@ -32,7 +38,7 @@ export const Media = () => {
                 "Mr. Hani Hebashi is an investor, a businessman and a successful CEO from Egypt."
               </p>
             </div>
-          </div>
+          </button>
         </Reveal>
 
         {/* Press grid */}

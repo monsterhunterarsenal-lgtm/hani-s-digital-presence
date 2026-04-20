@@ -1,5 +1,6 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import { ZoomableImage } from "@/components/Lightbox";
 import tbilisiOffice from "@/assets/portfolio-tbilisi-office.jpeg";
 import trophy from "@/assets/portfolio-trophy.jpeg";
 import lounge from "@/assets/portfolio-lounge.jpeg";
@@ -35,12 +36,11 @@ export const Portfolio = () => {
                   </div>
                   <div className="gold-divider mb-6" />
                   <p className="text-muted-foreground leading-relaxed">{p.description}</p>
-                  <div className="mt-6 aspect-[16/9] overflow-hidden relative group/img">
-                    <img
+                  <div className="mt-6 aspect-[16/9] overflow-hidden relative">
+                    <ZoomableImage
                       src={platformImages[i % platformImages.length]}
                       alt={`${p.name} visual`}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
-                      loading="lazy"
+                      caption={p.name}
                     />
                   </div>
                 </div>
