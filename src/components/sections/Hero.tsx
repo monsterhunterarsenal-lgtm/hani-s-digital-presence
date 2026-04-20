@@ -2,9 +2,12 @@ import { useLang } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpeg";
+import { useLightbox } from "@/components/Lightbox";
 
 export const Hero = () => {
   const { t, dir } = useLang();
+  const { open } = useLightbox();
+  const portraitAlt = dir === "rtl" ? "هاني حبشي — رئيس مجلس الإدارة" : "Hani Hebashy — Chairman & CEO";
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
 
   return (
