@@ -85,8 +85,8 @@ export const content: Record<Lang, Content> = {
       stats: [
         { value: "2008", label: "Founded" },
         { value: "7", label: "Countries" },
-        { value: "970+", label: "Professionals" },
-        { value: "8", label: "Core Sectors" },
+        { value: "970+", label: "Team Members" },
+        { value: "8", label: "Ventures" },
       ],
     },
     about: {
@@ -207,8 +207,8 @@ export const content: Record<Lang, Content> = {
       stats: [
         { value: "٢٠٠٨", label: "سنة التأسيس" },
         { value: "٧", label: "دول" },
-        { value: "+٩٧٠", label: "محترف" },
-        { value: "٨", label: "قطاعات رئيسية" },
+        { value: "+٩٧٠", label: "أعضاء الفريق" },
+        { value: "٨", label: "مشاريع" },
       ],
     },
     about: {
