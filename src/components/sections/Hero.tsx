@@ -78,7 +78,7 @@ export const Hero = () => {
             {t.hero.stats.map((s) => (
               <div key={s.label}>
                 <div className="font-display text-3xl text-gold">{s.value}</div>
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-1">{s.label}</div>
+                <div className="text-[10px] uppercase tracking-[0.25em] text-primary mt-2">{s.label}</div>
               </div>
             ))}
           </motion.div>

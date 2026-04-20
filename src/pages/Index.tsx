@@ -6,7 +6,7 @@ import { Expertise } from "@/components/sections/Expertise";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { Media } from "@/components/sections/Media";
-import { Testimonials } from "@/components/sections/Testimonials";
+// import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { useEffect } from "react";
@@ -18,12 +18,12 @@ const Page = () => {
     document.title =
       lang === "ar"
         ? "هاني حبشي — رئيس مجلس الإدارة، مجموعة حبشي القابضة"
-        : "Hani Hebashy — Chairman & CEO, Hebashi Holding Group";
+        : "Hani Hebashy — Chairman & CEO, Hebashy Holding Group";
 
     const desc =
       lang === "ar"
         ? "هاني حبشي: قائد عابر للحدود وباني منصات. مجموعة حبشي القابضة عبر سبع دول."
-        : "Hani Hebashy: cross-border business leader and platform builder. Hebashi Holding Group across seven countries.";
+        : "Hani Hebashy: cross-border business leader and platform builder. Hebashy Holding Group across seven countries.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -42,7 +42,7 @@ const Page = () => {
       <Portfolio />
       <Philosophy />
       <Media />
-      <Testimonials />
+      {/* <Testimonials /> hidden until real testimonials are added */}
       <Contact />
       <Footer />
     </main>

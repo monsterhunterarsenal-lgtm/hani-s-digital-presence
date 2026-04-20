@@ -10,6 +10,7 @@ const pressImages = [forbes, magazineCover, phoneForbes, trophy];
 
 export const Media = () => {
   const { t } = useLang();
+  const { open } = useLightbox();
   return (
     <section id="media" className="py-28 md:py-36 bg-surface-2/40 relative">
       <div className="absolute inset-x-0 top-0 gold-divider" />
@@ -22,22 +23,18 @@ export const Media = () => {
           </Reveal>
         </div>
 
-        {/* Featured press image */}
+        {/* Featured Forbes quote */}
         <Reveal>
           <button
             type="button"
             onClick={() => open(forbes, "Hani Hebashy featured in Forbes International")}
-            className="aspect-[16/9] glass mb-12 relative overflow-hidden group block w-full text-left cursor-zoom-in"
+            className="glass mb-12 relative overflow-hidden group block w-full text-left cursor-zoom-in p-8 md:p-12"
             aria-label="Open Forbes feature in lightbox"
           >
-            <img src={forbes} alt="Hani Hebashy featured in Forbes International" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-primary mb-2">Forbes International</div>
-              <p className="font-display italic text-xl md:text-2xl text-foreground/95 max-w-3xl leading-snug">
-                "Mr. Hani Hebashi is an investor, a businessman and a successful CEO from Egypt."
-              </p>
-            </div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-primary mb-4">Forbes International</div>
+            <p className="font-display italic text-xl md:text-2xl text-foreground/95 max-w-4xl leading-snug">
+              "Since the creation of OTI Holding Group, the investment Mr. Hebashy has attracted to Georgia amounts to hundreds of millions of dollars. He has massive ongoing projects that will come to fruition in the coming years. Mr. Hani Hebashy is an investor, a businessman and a successful CEO from Egypt."
+            </p>
           </button>
         </Reveal>
 
