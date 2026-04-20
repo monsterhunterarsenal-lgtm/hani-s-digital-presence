@@ -35,7 +35,7 @@ export const Footer = () => {
             <a href="mailto:contact@hanihebashy.com" aria-label="Email" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
               <Mail className="w-4 h-4" />
             </a>
-            <a href="https://wa.me/0000000000" aria-label="WhatsApp" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
+            <a href="https://wa.me/995577187750" aria-label="WhatsApp" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
               <MessageCircle className="w-4 h-4" />
             </a>
           </div>
