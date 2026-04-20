@@ -1,6 +1,7 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import heroPortrait from "@/assets/hero-portrait.jpeg";
 
 export const Hero = () => {
   const { t, dir } = useLang();
@@ -88,25 +89,15 @@ export const Hero = () => {
           className="lg:col-span-5"
         >
           <div className="relative aspect-[4/5] max-w-md mx-auto">
-            <div className="absolute -inset-4 bg-gradient-gold opacity-20 blur-2xl" />
+            <div className="absolute -inset-4 bg-gradient-gold opacity-25 blur-3xl" />
             <div className="absolute inset-0 glass shadow-deep overflow-hidden">
-              <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-surface-2 to-surface-3 relative">
-                <div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.2), transparent 50%)",
-                  }}
-                />
-                <div className="relative z-10 text-center px-8">
-                  <div className="w-24 h-24 mx-auto border hairline grid place-items-center mb-6">
-                    <span className="font-display text-4xl text-gold">HH</span>
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                    {dir === "rtl" ? "موضع الصورة الشخصية" : "Portrait Placeholder"}
-                  </p>
-                </div>
-              </div>
+              <img
+                src={heroPortrait}
+                alt={dir === "rtl" ? "هاني حبشي — رئيس مجلس الإدارة" : "Hani Hebashy — Chairman & CEO"}
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
             </div>
             {/* Corner accents */}
             <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary" />

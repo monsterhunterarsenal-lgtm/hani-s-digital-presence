@@ -1,6 +1,11 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
-import { PlayCircle } from "lucide-react";
+import forbes from "@/assets/media-forbes.jpeg";
+import magazineCover from "@/assets/media-magazine-cover.jpeg";
+import phoneForbes from "@/assets/media-phone-forbes.jpeg";
+import trophy from "@/assets/portfolio-trophy.jpeg";
+
+const pressImages = [forbes, magazineCover, phoneForbes, trophy];
 
 export const Media = () => {
   const { t } = useLang();
@@ -16,28 +21,31 @@ export const Media = () => {
           </Reveal>
         </div>
 
-        {/* Featured video placeholder */}
+        {/* Featured press image */}
         <Reveal>
-          <div className="aspect-video glass mb-12 grid place-items-center group cursor-pointer relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-radial-gold opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
-            <div className="relative text-center">
-              <PlayCircle className="w-20 h-20 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform duration-500" strokeWidth={1} />
-              <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Featured Talk Placeholder</div>
+          <div className="aspect-[16/9] glass mb-12 relative overflow-hidden group">
+            <img src={forbes} alt="Hani Hebashy featured in Forbes International" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-primary mb-2">Forbes International</div>
+              <p className="font-display italic text-xl md:text-2xl text-foreground/95 max-w-3xl leading-snug">
+                "Mr. Hani Hebashi is an investor, a businessman and a successful CEO from Egypt."
+              </p>
             </div>
           </div>
         </Reveal>
 
-        {/* Press grid (placeholder) */}
+        {/* Press grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {t.media.items.map((item, i) => (
             <Reveal key={i} delay={i * 0.06}>
-              <div className="bg-background p-8 h-full flex flex-col justify-between min-h-[180px] hover:bg-surface-2 transition-colors duration-500">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-primary mb-4">{item.source}</div>
-                <div className="space-y-2">
-                  <div className="h-8 border hairline grid place-items-center text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    {t.media.placeholder}
-                  </div>
-                  <p className="text-sm text-foreground/80 leading-snug">{item.title}</p>
+              <div className="bg-background h-full flex flex-col min-h-[260px] hover:bg-surface-2 transition-colors duration-500 group">
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <img src={pressImages[i % pressImages.length]} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                </div>
+                <div className="p-6 flex flex-col gap-2">
+                  <div className="text-[10px] uppercase tracking-[0.3em] text-primary">{item.source}</div>
+                  <p className="text-sm text-foreground/85 leading-snug">{item.title}</p>
                 </div>
               </div>
             </Reveal>

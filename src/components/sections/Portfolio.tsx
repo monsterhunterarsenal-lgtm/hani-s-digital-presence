@@ -1,5 +1,11 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import tbilisiOffice from "@/assets/portfolio-tbilisi-office.jpeg";
+import trophy from "@/assets/portfolio-trophy.jpeg";
+import lounge from "@/assets/portfolio-lounge.jpeg";
+import phoneForbes from "@/assets/media-phone-forbes.jpeg";
+
+const platformImages = [tbilisiOffice, trophy, lounge, phoneForbes];
 
 export const Portfolio = () => {
   const { t } = useLang();
@@ -29,8 +35,13 @@ export const Portfolio = () => {
                   </div>
                   <div className="gold-divider mb-6" />
                   <p className="text-muted-foreground leading-relaxed">{p.description}</p>
-                  <div className="mt-6 aspect-[16/8] glass-none bg-surface-3 grid place-items-center">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Project Image Placeholder</span>
+                  <div className="mt-6 aspect-[16/9] overflow-hidden relative group/img">
+                    <img
+                      src={platformImages[i % platformImages.length]}
+                      alt={`${p.name} visual`}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </article>

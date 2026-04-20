@@ -1,5 +1,8 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import aboutPortrait from "@/assets/about-portrait.jpeg";
+import aboutOffice from "@/assets/about-office.jpeg";
+import aboutGlass from "@/assets/about-glass.jpeg";
 
 export const About = () => {
   const { t } = useLang();
@@ -14,10 +17,14 @@ export const About = () => {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="aspect-[4/5] max-w-sm glass shadow-deep relative overflow-hidden">
-              <div className="absolute inset-0 grid place-items-center">
-                <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Photo Placeholder</span>
-              </div>
+            <div className="aspect-[4/5] max-w-sm glass shadow-deep relative overflow-hidden group">
+              <img
+                src={aboutPortrait}
+                alt="Hani Hebashy portrait"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               <div className="absolute -top-px -left-px w-6 h-6 border-t border-l border-primary" />
               <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-primary" />
             </div>
@@ -32,6 +39,17 @@ export const About = () => {
         </div>
 
         <div className="lg:col-span-7 space-y-10">
+          <Reveal delay={0.05}>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[4/5] glass overflow-hidden relative group">
+                <img src={aboutOffice} alt="Hani Hebashy at the Tbilisi office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+              <div className="aspect-[4/5] glass overflow-hidden relative group mt-8">
+                <img src={aboutGlass} alt="Hani Hebashy in modern office" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              </div>
+            </div>
+          </Reveal>
+
           <Reveal delay={0.1}>
             <p className="font-display italic text-2xl md:text-3xl leading-snug text-foreground/90 border-l-2 border-primary pl-6 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-6">
               {t.about.lead}
