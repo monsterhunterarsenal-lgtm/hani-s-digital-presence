@@ -2,9 +2,12 @@ import { useLang } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpeg";
+import { useLightbox } from "@/components/Lightbox";
 
 export const Hero = () => {
   const { t, dir } = useLang();
+  const { open } = useLightbox();
+  const portraitAlt = dir === "rtl" ? "هاني حبشي — رئيس مجلس الإدارة" : "Hani Hebashy — Chairman & CEO";
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
 
   return (
@@ -90,15 +93,20 @@ export const Hero = () => {
         >
           <div className="relative aspect-[4/5] max-w-md mx-auto">
             <div className="absolute -inset-4 bg-gradient-gold opacity-25 blur-3xl" />
-            <div className="absolute inset-0 glass shadow-deep overflow-hidden">
+            <button
+              type="button"
+              onClick={() => open(heroPortrait, portraitAlt)}
+              className="absolute inset-0 glass shadow-deep overflow-hidden cursor-zoom-in group"
+              aria-label="Open portrait in lightbox"
+            >
               <img
                 src={heroPortrait}
-                alt={dir === "rtl" ? "هاني حبشي — رئيس مجلس الإدارة" : "Hani Hebashy — Chairman & CEO"}
-                className="w-full h-full object-cover object-center"
+                alt={portraitAlt}
+                className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
-            </div>
+            </button>
             {/* Corner accents */}
             <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary" />
             <div className="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-primary" />
