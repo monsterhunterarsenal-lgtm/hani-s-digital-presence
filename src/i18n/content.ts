@@ -75,7 +75,7 @@ export const content: Record<Lang, Content> = {
   en: {
     nav: { about: "About", expertise: "Expertise", portfolio: "Ventures", media: "Media", testimonials: "Voices", contact: "Contact" },
     hero: {
-      eyebrow: "Hani Hebashy — Chairman & CEO, Hebashi Holding Group",
+      eyebrow: "Hani Hebashy — Chairman & CEO, Hebashy Holding Group",
       titleLine1: "Building Cross-Border",
       titleLine2: "Businesses Driven by Values",
       subtitle:
@@ -85,8 +85,8 @@ export const content: Record<Lang, Content> = {
       stats: [
         { value: "2008", label: "Founded" },
         { value: "7", label: "Countries" },
-        { value: "970+", label: "Professionals" },
-        { value: "8", label: "Core Sectors" },
+        { value: "970+", label: "Team Members" },
+        { value: "8", label: "Ventures" },
       ],
     },
     about: {
@@ -95,17 +95,17 @@ export const content: Record<Lang, Content> = {
       lead:
         "We are not building for the present moment. We are building platforms that anticipate the future — where capital, opportunity, and intelligence converge.",
       paragraphs: [
-        "Hani Hebashy is the Chairman & CEO of Hebashi Holding Group (HHG) and President of the Georgian-Arab-African Business Union — a diversified international holding platform operating across seven countries and eight core industries.",
-        "His journey began in Egypt with youth employment initiatives, expanded through Saudi Arabia in CSR and sustainability, took on global perspective in Qatar and Malaysia, and culminated in Georgia with the founding of Hebashi Holding Group — a next-generation institutional platform combining strategic geography, integrated operations, AI-driven intelligence and vision-led leadership.",
+        "Hani Hebashy is the Chairman & CEO of Hebashy Holding Group (HHG) and President of the Georgian-Arab-African Business Union — a diversified international holding platform operating across seven countries and eight core industries.",
+        "His journey began in Egypt with youth employment initiatives, expanded through Saudi Arabia in CSR and sustainability, took on global perspective in Qatar and Malaysia, and culminated in Georgia with the founding of Hebashy Holding Group — a next-generation institutional platform combining strategic geography, integrated operations, AI-driven intelligence and vision-led leadership.",
         "His approach: build with integrity, scale with discipline, and treat partnerships as long-term strategic assets.",
       ],
       journey: [
         { year: "2008", place: "Egypt", note: "Youth employment & enterprise" },
         { year: "2012", place: "Saudi Arabia", note: "CSR & sustainability" },
         { year: "2015", place: "Qatar & Malaysia", note: "Global exposure" },
-        { year: "Today", place: "Georgia", note: "Founded Hebashi Holding Group" },
+        { year: "Today", place: "Georgia", note: "Founded Hebashy Holding Group" },
       ],
-      role: "Chairman & CEO, Hebashi Holding Group",
+      role: "Chairman & CEO, Hebashy Holding Group",
       union: "President, Georgian-Arab-African Business Union",
     },
     expertise: {
@@ -207,8 +207,8 @@ export const content: Record<Lang, Content> = {
       stats: [
         { value: "٢٠٠٨", label: "سنة التأسيس" },
         { value: "٧", label: "دول" },
-        { value: "+٩٧٠", label: "محترف" },
-        { value: "٨", label: "قطاعات رئيسية" },
+        { value: "+٩٧٠", label: "أعضاء الفريق" },
+        { value: "٨", label: "مشاريع" },
       ],
     },
     about: {

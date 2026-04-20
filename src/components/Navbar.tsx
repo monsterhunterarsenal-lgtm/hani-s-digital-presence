@@ -39,7 +39,7 @@ export const Navbar = () => {
               {lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}
             </div>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}
+              {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashy Holding Group"}
             </div>
           </div>
         </a>
