@@ -1,13 +1,9 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import heroPortrait from "@/assets/hero-portrait.jpeg";
-import { useLightbox } from "@/components/Lightbox";
 
 export const Hero = () => {
   const { t, dir } = useLang();
-  const { open } = useLightbox();
-  const portraitAlt = dir === "rtl" ? "هاني حبشي — رئيس مجلس الإدارة" : "Hani Hebashy — Chairman & CEO";
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
 
   return (
@@ -26,8 +22,8 @@ export const Hero = () => {
         }}
       />
 
-      <div className="container-x relative grid lg:grid-cols-12 gap-12 lg:gap-8 items-center py-20">
-        <div className="lg:col-span-7 space-y-8">
+      <div className="container-x relative py-20">
+        <div className="max-w-4xl space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,35 +82,6 @@ export const Hero = () => {
             ))}
           </motion.div>
         </div>
-
-        {/* Portrait placeholder */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5"
-        >
-          <div className="relative aspect-[4/5] max-w-md mx-auto">
-            <div className="absolute -inset-4 bg-gradient-gold opacity-25 blur-3xl" />
-            <button
-              type="button"
-              onClick={() => open(heroPortrait, portraitAlt)}
-              className="absolute inset-0 glass shadow-deep overflow-hidden cursor-zoom-in group"
-              aria-label="Open portrait in lightbox"
-            >
-              <img
-                src={heroPortrait}
-                alt={portraitAlt}
-                className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
-            </button>
-            {/* Corner accents */}
-            <div className="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-primary" />
-            <div className="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-primary" />
-          </div>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
