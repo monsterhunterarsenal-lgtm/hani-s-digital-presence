@@ -38,13 +38,26 @@ export interface Content {
   };
   portfolio: {
     eyebrow: string;
+    sectionNumber: string;
     title: string;
+    titleAccent?: string;
+    titleTail?: string;
     intro: string;
-    platforms: { name: string; tag: string; description: string }[];
+    principles: { title: string; description: string }[];
     sectors: string[];
     sectorsTitle: string;
     countriesTitle: string;
     countries: string[];
+  };
+  partnerships: {
+    eyebrow: string;
+    sectionNumber: string;
+    title: string;
+    titleAccent: string;
+    titleTail: string;
+    intro: string;
+    cards: { title: string; description: string }[];
+    closing: string;
   };
   esg: {
     eyebrow: string;
@@ -184,15 +197,17 @@ export const content: Record<Lang, Content> = {
         "AI functions as a decision-support and control layer — enhancing precision, scalability, and timing across markets.",
     },
     portfolio: {
-      eyebrow: "Ventures",
-      title: "Operating platforms shaping markets.",
+      eyebrow: "Operating Platforms",
+      sectionNumber: "06",
+      title: "Specialised subsidiaries.",
+      titleAccent: " Centralised ",
+      titleTail: "control.",
       intro:
-        "HHG executes through specialized subsidiaries — operationally autonomous, strategically centralized, and data-driven by design.",
-      platforms: [
-        { name: "ZMC", tag: "Construction & Engineering", description: "Construction and engineering execution across HHG's real-asset portfolio." },
-        { name: "CTC", tag: "Telecommunications", description: "Telecommunications and outsourcing solutions powering enterprise infrastructure." },
-        { name: "OTI Real Estate", tag: "Real Estate", description: "Real estate services and development across strategic geographies." },
-        { name: "Caucasus Paradise", tag: "Tourism & Hospitality", description: "A tourism and travel platform anchored in HHG's Georgian hub." },
+        "HHG executes through specialised subsidiaries and platforms, structured to enable full-cycle value creation — from asset origination to monetisation.",
+      principles: [
+        { title: "Operational Autonomy", description: "Each subsidiary operates with independent execution authority, optimised for its sector and market." },
+        { title: "Centralised Strategic Control", description: "Unified capital allocation, governance, and strategic direction across the Group's holdings." },
+        { title: "Data-Driven Performance Management", description: "Institutional oversight powered by real-time performance data and AI-enabled monitoring systems." },
       ],
       sectorsTitle: "Eight core sectors",
       sectors: [
@@ -207,6 +222,21 @@ export const content: Record<Lang, Content> = {
       ],
       countriesTitle: "Six countries · One hub-and-network model",
       countries: ["Georgia · Strategic Hub", "United Arab Emirates", "Egypt", "Turkey", "Oman", "Malaysia"],
+    },
+    partnerships: {
+      eyebrow: "Strategic Partnerships",
+      sectionNumber: "08",
+      title: "Partnerships as long-term",
+      titleAccent: " strategic ",
+      titleTail: "assets.",
+      intro:
+        "HHG collaborates with regional and international stakeholders across multiple industries — treating partnerships as long-term institutional assets that compound access, capability, and credibility over time.",
+      cards: [
+        { title: "Expanded Market Access", description: "Collaborations that unlock regional and cross-border opportunity sets unavailable to standalone operators." },
+        { title: "Strengthened Execution Capability", description: "Operational partnerships that reinforce delivery capacity, technical depth, and sector specialisation." },
+        { title: "Enhanced Institutional Positioning", description: "Alliances with governments, multilaterals, and capital market participants that elevate the Group's institutional standing." },
+      ],
+      closing: "Partnerships at HHG are not transactional — they are architectural.",
     },
     esg: {
       eyebrow: "ESG & Impact",
@@ -361,14 +391,16 @@ export const content: Record<Lang, Content> = {
       aiQuote: "يعمل الذكاء الاصطناعي كطبقة دعم قرار وتحكم — تعزز الدقة والقابلية للتوسع وحُسن التوقيت في الأسواق.",
     },
     portfolio: {
-      eyebrow: "المشاريع",
-      title: "منصات تشغيلية تصنع الأسواق.",
-      intro: "تنفّذ المجموعة من خلال شركات متخصصة — مستقلة تشغيليًا، مركزية استراتيجيًا، ومدفوعة بالبيانات.",
-      platforms: [
-        { name: "ZMC", tag: "إنشاءات وهندسة", description: "تنفيذ أعمال الإنشاءات والهندسة عبر محفظة الأصول الحقيقية للمجموعة." },
-        { name: "CTC", tag: "اتصالات", description: "حلول الاتصالات والإسناد التشغيلي لدعم البنية التحتية للشركات." },
-        { name: "OTI Real Estate", tag: "عقارات", description: "خدمات وتطوير عقاري عبر مواقع جغرافية استراتيجية." },
-        { name: "Caucasus Paradise", tag: "سياحة وضيافة", description: "منصة سياحة وسفر مرتكزة في محور المجموعة الجورجي." },
+      eyebrow: "المنصات التشغيلية",
+      sectionNumber: "٠٦",
+      title: "شركات متخصصة.",
+      titleAccent: " تحكم ",
+      titleTail: "مركزي.",
+      intro: "تنفّذ المجموعة من خلال شركات ومنصات متخصصة، مهيكلة لتمكين خلق القيمة عبر دورة الحياة الكاملة — من نشأة الأصل إلى تحقيق الإيرادات.",
+      principles: [
+        { title: "استقلالية تشغيلية", description: "كل شركة تابعة تعمل بصلاحية تنفيذية مستقلة، مُحسَّنة لقطاعها وسوقها." },
+        { title: "تحكم استراتيجي مركزي", description: "تخصيص موحّد لرأس المال، حوكمة، وتوجيه استراتيجي عبر محفظة المجموعة." },
+        { title: "إدارة أداء مدفوعة بالبيانات", description: "إشراف مؤسسي مدعوم ببيانات أداء فورية وأنظمة مراقبة مُمكَّنة بالذكاء الاصطناعي." },
       ],
       sectorsTitle: "ثمانية قطاعات رئيسية",
       sectors: [
@@ -383,6 +415,20 @@ export const content: Record<Lang, Content> = {
       ],
       countriesTitle: "ست دول · نموذج محاور وشبكات",
       countries: ["جورجيا · المحور الاستراتيجي", "الإمارات العربية المتحدة", "مصر", "تركيا", "عُمان", "ماليزيا"],
+    },
+    partnerships: {
+      eyebrow: "الشراكات الاستراتيجية",
+      sectionNumber: "٠٨",
+      title: "الشراكات بوصفها أصولًا",
+      titleAccent: " استراتيجية ",
+      titleTail: "طويلة الأجل.",
+      intro: "تتعاون المجموعة مع شركاء إقليميين ودوليين عبر قطاعات متعددة — وتعامل الشراكات كأصول مؤسسية طويلة الأجل تُراكم الوصول والقدرة والمصداقية مع الوقت.",
+      cards: [
+        { title: "توسيع الوصول إلى الأسواق", description: "تعاونات تفتح فرصًا إقليمية وعابرة للحدود لا تتاح للجهات المنفردة." },
+        { title: "تعزيز قدرة التنفيذ", description: "شراكات تشغيلية تعزّز سعة التنفيذ والعمق التقني والتخصص القطاعي." },
+        { title: "تقوية الموقع المؤسسي", description: "تحالفات مع حكومات وجهات متعددة الأطراف ومشاركين في أسواق المال ترفع من المكانة المؤسسية للمجموعة." },
+      ],
+      closing: "الشراكات في المجموعة ليست معاملاتية — بل بنيوية.",
     },
     esg: {
       eyebrow: "الاستدامة والأثر",
