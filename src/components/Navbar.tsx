@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import { Menu, X, Globe } from "lucide-react";
+import hhgLogo from "@/assets/hhg-monogram.png";
 
 export const Navbar = () => {
   const { t, toggle, lang } = useLang();
@@ -34,9 +35,13 @@ export const Navbar = () => {
     >
       <div className="container-x flex items-center justify-between h-20">
         <a href="#top" className="flex items-center gap-3 group">
-          <span className="w-10 h-10 grid place-items-center bg-gradient-gold text-primary-foreground font-display text-base font-bold">
-            HHG
-          </span>
+          <img
+            src={hhgLogo}
+            alt="HHG — Hebashi Holding Group"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
+          />
           <div className="leading-tight">
             <div
               className="font-display text-sm font-medium text-foreground"
