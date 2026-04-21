@@ -1,12 +1,5 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
-import { ZoomableImage } from "@/components/Lightbox";
-import tbilisiOffice from "@/assets/portfolio-tbilisi-office.jpeg";
-import trophy from "@/assets/portfolio-trophy.jpeg";
-import lounge from "@/assets/portfolio-lounge.jpeg";
-import phoneForbes from "@/assets/media-phone-forbes.jpeg";
-
-const platformImages = [tbilisiOffice, trophy, lounge, phoneForbes];
 
 export const Portfolio = () => {
   const { t } = useLang();
@@ -15,36 +8,31 @@ export const Portfolio = () => {
       <div className="container-x">
         <div className="max-w-3xl mb-16">
           <Reveal>
-            <div className="eyebrow mb-4">{t.portfolio.eyebrow}</div>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">{t.portfolio.title}</h2>
+            <div className="eyebrow mb-4">
+              <span className="text-primary mr-2 rtl:mr-0 rtl:ml-2">{t.portfolio.sectionNumber}</span>
+              <span>— {t.portfolio.eyebrow}</span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">
+              {t.portfolio.title}
+              {t.portfolio.titleAccent && (
+                <span className="italic text-gold">{t.portfolio.titleAccent}</span>
+              )}
+              {t.portfolio.titleTail}
+            </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">{t.portfolio.intro}</p>
           </Reveal>
         </div>
 
-        {/* Operating platforms */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-24">
-          {t.portfolio.platforms.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.08}>
-              <article className="glass p-8 md:p-10 group relative overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-gold-soft opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <div className="relative">
-                  <div className="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-                    <div className="font-display text-3xl md:text-4xl">{p.name}</div>
-                    <div className="text-[11px] uppercase tracking-[0.25em] text-primary border hairline px-3 py-1">
-                      {p.tag}
-                    </div>
-                  </div>
-                  <div className="gold-divider mb-6" />
-                  <p className="text-muted-foreground leading-relaxed">{p.description}</p>
-                  <div className="mt-6 aspect-[16/9] overflow-hidden relative">
-                    <ZoomableImage
-                      src={platformImages[i % platformImages.length]}
-                      alt={`${p.name} visual`}
-                      caption={p.name}
-                    />
-                  </div>
-                </div>
-              </article>
+        {/* Three structural principles */}
+        <div className="grid md:grid-cols-3 gap-px bg-border mb-24">
+          {t.portfolio.principles.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08}>
+              <div className="bg-background h-full p-8 md:p-10 group hover:bg-surface-2 transition-colors duration-500 relative">
+                <div className="absolute top-0 left-0 h-px w-0 bg-gradient-gold group-hover:w-full transition-all duration-700" />
+                <div className="text-2xl text-primary mb-5 leading-none">◇</div>
+                <div className="font-display text-xl md:text-2xl mb-3">{p.title}</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
+              </div>
             </Reveal>
           ))}
         </div>
