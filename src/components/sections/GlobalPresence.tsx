@@ -1,19 +1,20 @@
+import { useEffect, useMemo, useState } from "react";
+import { geoEqualEarth, geoPath } from "d3-geo";
+import { feature } from "topojson-client";
+import type { Feature, FeatureCollection, Geometry } from "geojson";
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
-import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
-// World atlas (countries-110m) hosted via CDN
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// HHG-presence ISO numeric codes (matching world-atlas country IDs)
-// GE=268, AE=784, EG=818, TR=792, OM=512, MY=458
-const ACTIVE_IDS = new Set(["268", "784", "818", "792", "512", "458"]);
+// ISO numeric IDs as used by world-atlas
 const HUB_ID = "268"; // Georgia
+const ACTIVE_IDS = new Set(["268", "784", "818", "792", "512", "458"]);
 
 type CountryMarker = {
   code: string;
   name: string;
-  coords: [number, number]; // [lng, lat]
+  coords: [number, number];
   hub?: boolean;
 };
 
@@ -26,8 +27,34 @@ const MARKERS: CountryMarker[] = [
   { code: "MY", name: "Malaysia", coords: [101.9758, 4.2105] },
 ];
 
+const WIDTH = 980;
+const HEIGHT = 460;
+
 export const GlobalPresence = () => {
   const { t } = useLang();
+  const [countries, setCountries] = useState<Feature<Geometry, { id: string }>[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(GEO_URL)
+      .then((r) => r.json())
+      .then((topo: any) => {
+        if (cancelled) return;
+        const fc = feature(topo, topo.objects.countries) as unknown as FeatureCollection<Geometry, { id: string }>;
+        setCountries(fc.features);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const { pathFn, projection } = useMemo(() => {
+    const proj = geoEqualEarth()
+      .scale(175)
+      .translate([WIDTH / 2, HEIGHT / 2]);
+    return { pathFn: geoPath(proj), projection: proj };
+  }, []);
 
   return (
     <section id="presence" className="py-28 md:py-36 relative">
@@ -40,75 +67,45 @@ export const GlobalPresence = () => {
           </Reveal>
         </div>
 
-        {/* Map */}
         <Reveal delay={0.1}>
           <div className="relative border hairline bg-card p-4 md:p-8 mb-10">
-            <div className="w-full" aria-label="HHG global presence map" role="img">
-              <ComposableMap
-                projection="geoEqualEarth"
-                projectionConfig={{ scale: 175 }}
-                width={980}
-                height={460}
-                style={{ width: "100%", height: "auto" }}
-              >
-                <Geographies geography={GEO_URL}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => {
-                      const id = String(geo.id);
-                      const isHub = id === HUB_ID;
-                      const isActive = ACTIVE_IDS.has(id);
-                      const fill = isHub
-                        ? "hsl(var(--primary) / 0.85)"
-                        : isActive
-                        ? "hsl(var(--primary) / 0.45)"
-                        : "hsl(var(--foreground) / 0.07)";
-                      const stroke = isActive
-                        ? "hsl(var(--primary))"
-                        : "hsl(var(--foreground) / 0.15)";
-                      return (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill={fill}
-                          stroke={stroke}
-                          strokeWidth={0.4}
-                          style={{
-                            default: { outline: "none" },
-                            hover: { outline: "none", fill },
-                            pressed: { outline: "none", fill },
-                          }}
-                        />
-                      );
-                    })
-                  }
-                </Geographies>
+            <svg
+              viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+              className="w-full h-auto"
+              role="img"
+              aria-label="HHG global presence map"
+            >
+              <g>
+                {countries.map((geo, i) => {
+                  const id = String((geo as { id?: string | number }).id ?? "");
+                  const isHub = id === HUB_ID;
+                  const isActive = ACTIVE_IDS.has(id);
+                  const fill = isHub
+                    ? "hsl(var(--primary) / 0.85)"
+                    : isActive
+                    ? "hsl(var(--primary) / 0.45)"
+                    : "hsl(var(--foreground) / 0.07)";
+                  const stroke = isActive
+                    ? "hsl(var(--primary))"
+                    : "hsl(var(--foreground) / 0.15)";
+                  const d = pathFn(geo) ?? "";
+                  return <path key={i} d={d} fill={fill} stroke={stroke} strokeWidth={0.4} />;
+                })}
+              </g>
 
-                {MARKERS.map((m) => (
-                  <Marker key={m.code} coordinates={m.coords}>
-                    <circle
-                      r={m.hub ? 11 : 8}
-                      fill="hsl(var(--primary))"
-                      opacity={0.2}
-                    >
-                      <animate
-                        attributeName="r"
-                        values={`${m.hub ? 11 : 8};${m.hub ? 18 : 14};${m.hub ? 11 : 8}`}
-                        dur="3s"
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        values="0.2;0;0.2"
-                        dur="3s"
-                        repeatCount="indefinite"
-                      />
+              {MARKERS.map((m) => {
+                const p = projection(m.coords);
+                if (!p) return null;
+                const [x, y] = p;
+                const r = m.hub ? 4.5 : 3.5;
+                const haloR = m.hub ? 11 : 8;
+                return (
+                  <g key={m.code} transform={`translate(${x},${y})`}>
+                    <circle r={haloR} fill="hsl(var(--primary))" opacity={0.2}>
+                      <animate attributeName="r" values={`${haloR};${haloR + 7};${haloR}`} dur="3s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.2;0;0.2" dur="3s" repeatCount="indefinite" />
                     </circle>
-                    <circle
-                      r={m.hub ? 4.5 : 3.5}
-                      fill="hsl(var(--primary))"
-                      stroke="hsl(var(--background))"
-                      strokeWidth={1}
-                    />
+                    <circle r={r} fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth={1} />
                     <text
                       x={m.hub ? 8 : 6}
                       y={3}
@@ -118,12 +115,11 @@ export const GlobalPresence = () => {
                     >
                       {m.name}
                     </text>
-                  </Marker>
-                ))}
-              </ComposableMap>
-            </div>
+                  </g>
+                );
+              })}
+            </svg>
 
-            {/* Legend */}
             <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t hairline">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-primary" />
@@ -141,7 +137,6 @@ export const GlobalPresence = () => {
           </div>
         </Reveal>
 
-        {/* Country chips */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border">
           {t.presence.countries.map((c, i) => (
             <Reveal key={c.code} delay={i * 0.05}>
