@@ -3,7 +3,10 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Expertise } from "@/components/sections/Expertise";
+import { BusinessModel } from "@/components/sections/BusinessModel";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { ESG } from "@/components/sections/ESG";
+import { Growth } from "@/components/sections/Growth";
 import { Philosophy } from "@/components/sections/Philosophy";
 import { Media } from "@/components/sections/Media";
 // import { Testimonials } from "@/components/sections/Testimonials";
@@ -18,12 +21,12 @@ const Page = () => {
     document.title =
       lang === "ar"
         ? "هاني حبشي — رئيس مجلس الإدارة، مجموعة حبشي القابضة"
-        : "Hani Hebashy — Chairman & CEO, Hebashy Holding Group";
+        : "Hani Hebashy — Chairman & CEO, Hebashi Holding Group";
 
     const desc =
       lang === "ar"
-        ? "هاني حبشي: قائد عابر للحدود وباني منصات. مجموعة حبشي القابضة عبر سبع دول."
-        : "Hani Hebashy: cross-border business leader and platform builder. Hebashy Holding Group across seven countries.";
+        ? "هاني حبشي: قائد عابر للحدود وباني منصات. مجموعة حبشي القابضة عبر ست دول وثمانية قطاعات."
+        : "Hani Hebashy: cross-border platform builder. Hebashi Holding Group operates across 6 countries and 8 core sectors — institutional-grade, ESG-aligned, AI-positioned.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -39,7 +42,10 @@ const Page = () => {
       <Hero />
       <About />
       <Expertise />
+      <BusinessModel />
       <Portfolio />
+      <ESG />
+      <Growth />
       <Philosophy />
       <Media />
       {/* <Testimonials /> hidden until real testimonials are added */}
