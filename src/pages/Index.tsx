@@ -5,6 +5,7 @@ import { About } from "@/components/sections/About";
 import { Expertise } from "@/components/sections/Expertise";
 import { BusinessModel } from "@/components/sections/BusinessModel";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Partnerships } from "@/components/sections/Partnerships";
 import { ESG } from "@/components/sections/ESG";
 import { Growth } from "@/components/sections/Growth";
 import { Philosophy } from "@/components/sections/Philosophy";
@@ -44,6 +45,7 @@ const Page = () => {
       <Expertise />
       <BusinessModel />
       <Portfolio />
+      <Partnerships />
       <ESG />
       <Growth />
       <Philosophy />
