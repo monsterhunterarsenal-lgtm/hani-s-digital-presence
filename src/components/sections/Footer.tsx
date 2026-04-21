@@ -1,6 +1,6 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Linkedin, Mail, MessageCircle, MapPin, Phone } from "lucide-react";
-import hhgLogo from "@/assets/hhg-monogram.png";
+import hhgLogo from "@/assets/hhg-logo.png";
 
 export const Footer = () => {
   const { t, lang } = useLang();
@@ -8,22 +8,15 @@ export const Footer = () => {
     <footer className="border-t hairline py-14 bg-background">
       <div className="container-x grid md:grid-cols-3 gap-10 items-start">
         <div>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="mb-4">
             <img
               src={hhgLogo}
               alt="HHG — Hebashi Holding Group"
-              width={44}
-              height={44}
               loading="lazy"
-              className="w-11 h-11 object-contain"
+              className="h-14 w-auto object-contain mb-3"
             />
-            <div className="leading-tight">
-              <div className="font-display text-sm font-medium" style={{ letterSpacing: "0.04em" }}>
-                {lang === "ar" ? "مجموعة حبشي القابضة" : "HEBASHI HOLDING GROUP"}
-              </div>
-              <div className="text-[10px] uppercase text-muted-foreground" style={{ letterSpacing: "0.28em" }}>
-                {lang === "ar" ? "تأسست ٢٠٠٨ · تبليسي" : "EST. 2008 · TBILISI"}
-              </div>
+            <div className="text-[10px] uppercase text-muted-foreground" style={{ letterSpacing: "0.28em" }}>
+              {lang === "ar" ? "تأسست ٢٠٠٨ · تبليسي" : "EST. 2008 · TBILISI"}
             </div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-sm font-display italic">{t.footer.tagline}</p>
