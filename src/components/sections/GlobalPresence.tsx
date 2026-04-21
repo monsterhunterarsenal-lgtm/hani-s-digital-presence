@@ -9,7 +9,7 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 
 // ISO numeric IDs as used by world-atlas
 const HUB_ID = "268"; // Georgia
-const ACTIVE_IDS = new Set(["268", "784", "818", "792", "512", "458"]);
+const ACTIVE_IDS = new Set(["268", "682", "784", "818", "792", "512", "458"]);
 
 type CountryMarker = {
   code: string;
@@ -20,6 +20,7 @@ type CountryMarker = {
 
 const MARKERS: CountryMarker[] = [
   { code: "GE", name: "Georgia", coords: [43.3569, 42.3154], hub: true },
+  { code: "SA", name: "Saudi Arabia", coords: [45.0792, 23.8859] },
   { code: "AE", name: "UAE", coords: [54.3773, 24.4539] },
   { code: "EG", name: "Egypt", coords: [31.2357, 30.0444] },
   { code: "TR", name: "Turkey", coords: [35.2433, 38.9637] },

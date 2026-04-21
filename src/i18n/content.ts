@@ -158,10 +158,10 @@ export const content: Record<Lang, Content> = {
       ctaPrimary: "Explore Our Platforms",
       ctaSecondary: "For Investors",
       stats: [
-        { value: "2008", label: "ESTABLISHED" },
-        { value: "6", label: "COUNTRIES" },
-        { value: "8", label: "CORE SECTORS" },
-        { value: "970+", label: "PROFESSIONALS" },
+        { value: "937", label: "UNITS BUILT" },
+        { value: "463", label: "UNITS UNDER CONSTRUCTION" },
+        { value: "12", label: "TURN-KEY PROJECTS" },
+        { value: "54,000", label: "SQM OWNED PROPERTY" },
       ],
     },
     about: {
@@ -206,10 +206,10 @@ export const content: Record<Lang, Content> = {
       title: "Our specialized platforms.",
       intro: "A portfolio of specialized subsidiaries delivering execution across sectors — operationally autonomous, strategically aligned.",
       cards: [
-        { name: "OTI Real Estate", tag: "Real Estate · Development", description: "Real estate development and integrated property services across regional markets." },
-        { name: "ZMC", tag: "Construction · Engineering", description: "Construction and engineering execution platform delivering large-scale projects." },
-        { name: "CTC", tag: "Telecom · Outsourcing", description: "Telecommunications and outsourcing solutions powering enterprise infrastructure." },
-        { name: "Caucasus Paradise", tag: "Hospitality · Tourism", description: "Tourism and hospitality platform anchoring HHG's experience economy footprint." },
+        { name: "OTI ESTATE", tag: "Real Estate · Development", description: "Flagship real estate development platform delivering integrated residential and mixed-use projects across Georgia and Saudi Arabia." },
+        { name: "OBC — OTI Business Centre", tag: "Commercial · Workspace", description: "Premium commercial and business centre operations anchoring HHG's enterprise services footprint." },
+        { name: "Natural Pearl", tag: "Hospitality · Lifestyle", description: "Hospitality and lifestyle platform extending HHG's experience economy across regional destinations." },
+        { name: "GIA", tag: "Media · Outreach", description: "Media and institutional outreach arm supporting HHG's brand, partnerships, and stakeholder engagement." },
       ],
     },
     sectors: {
@@ -238,6 +238,7 @@ export const content: Record<Lang, Content> = {
       hubLabel: "Strategic Hub",
       countries: [
         { code: "GE", name: "Georgia", hub: true },
+        { code: "SA", name: "Saudi Arabia" },
         { code: "AE", name: "United Arab Emirates" },
         { code: "EG", name: "Egypt" },
         { code: "TR", name: "Turkey" },
@@ -342,7 +343,7 @@ export const content: Record<Lang, Content> = {
     },
     footer: {
       tagline: "Innovative, Diversified & Leading — Building integrated platforms for long-term value.",
-      address: "12th Merab Aleksidze, Tbilisi, Georgia",
+      address: "12th Merab Aleksidze, Tbilisi, Georgia, GE 0193",
       phone: "+995 555 659 000",
       rights: "All rights reserved.",
       resources: "Resources",
@@ -372,10 +373,10 @@ export const content: Record<Lang, Content> = {
       ctaPrimary: "استكشف منصاتنا",
       ctaSecondary: "للمستثمرين",
       stats: [
-        { value: "٢٠٠٨", label: "سنة التأسيس" },
-        { value: "٦", label: "دول" },
-        { value: "٨", label: "قطاعات أساسية" },
-        { value: "+٩٧٠", label: "محترف" },
+        { value: "٩٣٧", label: "وحدة منجزة" },
+        { value: "٤٦٣", label: "وحدة قيد الإنشاء" },
+        { value: "١٢", label: "مشروع تسليم مفتاح" },
+        { value: "٥٤٬٠٠٠", label: "م٢ عقارات مملوكة" },
       ],
     },
     about: {
@@ -408,10 +409,10 @@ export const content: Record<Lang, Content> = {
       title: "منصاتنا المتخصصة.",
       intro: "محفظة من الشركات التابعة المتخصصة تقدّم تنفيذًا عبر القطاعات — مستقلة تشغيليًا ومتسقة استراتيجيًا.",
       cards: [
-        { name: "OTI العقارية", tag: "عقارات · تطوير", description: "تطوير عقاري وخدمات عقارية متكاملة في الأسواق الإقليمية." },
-        { name: "ZMC", tag: "إنشاءات · هندسة", description: "منصة إنشاءات وهندسة تنفّذ مشاريع كبرى." },
-        { name: "CTC", tag: "اتصالات · إسناد", description: "حلول اتصالات وإسناد تشغّل البنية التحتية للمؤسسات." },
-        { name: "Caucasus Paradise", tag: "ضيافة · سياحة", description: "منصة سياحة وضيافة ترسّخ حضور المجموعة في اقتصاد التجربة." },
+        { name: "OTI ESTATE", tag: "عقارات · تطوير", description: "منصة التطوير العقاري الرئيسية تقدّم مشاريع سكنية ومتعددة الاستخدامات متكاملة في جورجيا والمملكة العربية السعودية." },
+        { name: "OBC — مركز أعمال OTI", tag: "تجاري · مكاتب", description: "تشغيل مراكز تجارية وأعمال متميزة ترسّخ بصمة المجموعة في خدمات المؤسسات." },
+        { name: "Natural Pearl", tag: "ضيافة · أسلوب حياة", description: "منصة ضيافة وأسلوب حياة توسّع حضور المجموعة في اقتصاد التجربة عبر الوجهات الإقليمية." },
+        { name: "GIA", tag: "إعلام · تواصل", description: "ذراع الإعلام والتواصل المؤسسي يدعم العلامة والشراكات وعلاقات أصحاب المصلحة." },
       ],
     },
     sectors: {
@@ -431,6 +432,7 @@ export const content: Record<Lang, Content> = {
       hubLabel: "محور استراتيجي",
       countries: [
         { code: "GE", name: "جورجيا", hub: true },
+        { code: "SA", name: "السعودية" },
         { code: "AE", name: "الإمارات" },
         { code: "EG", name: "مصر" },
         { code: "TR", name: "تركيا" },
@@ -535,7 +537,7 @@ export const content: Record<Lang, Content> = {
     },
     footer: {
       tagline: "مبتكرة، متنوعة، ورائدة — نبني منصات متكاملة لقيمة طويلة الأجل.",
-      address: "12 ميراب ألكسيدزه، تبليسي، جورجيا",
+      address: "12 ميراب ألكسيدزه، تبليسي، جورجيا، GE 0193",
       phone: "+995 555 659 000",
       rights: "جميع الحقوق محفوظة.",
       resources: "روابط",
