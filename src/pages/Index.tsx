@@ -21,13 +21,13 @@ const Page = () => {
   useEffect(() => {
     document.title =
       lang === "ar"
-        ? "هاني حبشي — رئيس مجلس الإدارة، مجموعة حبشي القابضة"
-        : "Hani Hebashy — Chairman & CEO, Hebashi Holding Group";
+        ? "مجموعة حبشي القابضة — باني منصات مؤسسية"
+        : "Hebashi Holding Group — Institutional Platform Builder";
 
     const desc =
       lang === "ar"
-        ? "هاني حبشي: قائد عابر للحدود وباني منصات. مجموعة حبشي القابضة عبر ست دول وثمانية قطاعات."
-        : "Hani Hebashy: cross-border platform builder. Hebashi Holding Group operates across 6 countries and 8 core sectors — institutional-grade, ESG-aligned, AI-positioned.";
+        ? "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو."
+        : "Hebashi Holding Group (HHG) is a diversified international holding platform that builds, scales, and operates integrated business ecosystems across high-growth sectors.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");

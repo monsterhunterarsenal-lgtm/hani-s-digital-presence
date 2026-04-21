@@ -10,9 +10,11 @@ export const Footer = () => {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-9 h-9 grid place-items-center bg-gradient-gold text-primary-foreground font-display text-lg font-bold">H</span>
             <div className="leading-tight">
-              <div className="text-sm font-medium">{lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}</div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}
+              <div className="font-display text-sm font-medium" style={{ letterSpacing: "0.04em" }}>
+                {lang === "ar" ? "مجموعة حبشي القابضة" : "HEBASHI HOLDING GROUP"}
+              </div>
+              <div className="text-[10px] uppercase text-muted-foreground" style={{ letterSpacing: "0.28em" }}>
+                {lang === "ar" ? "تأسست ٢٠٠٨ · تبليسي" : "EST. 2008 · TBILISI"}
               </div>
             </div>
           </div>
@@ -22,7 +24,7 @@ export const Footer = () => {
         <div className="md:text-center">
           <div className="text-[10px] uppercase tracking-[0.3em] text-primary mb-4">{t.nav.contact}</div>
           <div className="space-y-2 text-sm text-muted-foreground">
-            <div>contact@hanihebashy.com</div>
+            <div>ir@hebashiholding.com</div>
             <div>Tbilisi · Cairo · Dubai</div>
           </div>
         </div>
@@ -32,10 +34,10 @@ export const Footer = () => {
             <a href="#" aria-label="LinkedIn" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="mailto:contact@hanihebashy.com" aria-label="Email" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
+            <a href="mailto:ir@hebashiholding.com" aria-label="Email" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
               <Mail className="w-4 h-4" />
             </a>
-            <a href="https://wa.me/995577187750" aria-label="WhatsApp" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
+            <a href="https://wa.me/995577187750" aria-label="Direct line" className="w-10 h-10 grid place-items-center border hairline hover:border-primary hover:text-primary transition-colors">
               <MessageCircle className="w-4 h-4" />
             </a>
           </div>
@@ -43,8 +45,8 @@ export const Footer = () => {
       </div>
 
       <div className="container-x mt-12 pt-6 border-t hairline flex flex-col md:flex-row gap-4 justify-between items-center text-xs text-muted-foreground">
-        <div>© {new Date().getFullYear()} {lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}. {t.footer.rights}</div>
-        <div className="font-display italic">HHG builds the platforms that shape markets.</div>
+        <div>© 2026 {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}. {t.footer.rights}</div>
+        <div className="font-display italic" style={{ letterSpacing: "0.15em" }}>{lang === "ar" ? "مؤسسي · جاهز للمستثمرين · متوافق مع ESG" : "Institutional · Investor-Ready · ESG-Aligned"}</div>
       </div>
     </footer>
   );

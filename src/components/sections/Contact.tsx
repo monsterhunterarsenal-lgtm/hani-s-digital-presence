@@ -32,30 +32,28 @@ export const Contact = () => {
           <Reveal delay={0.15}>
             <div className="space-y-4">
               <a
-                href="https://wa.me/995577187750"
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:ir@hebashiholding.com"
                 className="flex items-center gap-4 p-5 glass hover:border-primary transition-all group"
               >
                 <div className="w-12 h-12 grid place-items-center bg-gradient-gold text-primary-foreground">
-                  <MessageCircle className="w-5 h-5" />
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{t.contact.whatsapp}</div>
-                  <div className="text-foreground group-hover:text-primary transition-colors">+995 577 18 77 50</div>
+                  <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{t.contact.emailLabel}</div>
+                  <div className="text-foreground group-hover:text-primary transition-colors">ir@hebashiholding.com</div>
                 </div>
               </a>
 
               <a
-                href="mailto:contact@hanihebashy.com"
-                className="flex items-center gap-4 p-5 glass hover:border-primary transition-all group"
+                href="https://wa.me/995577187750"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 px-4 py-3 border hairline hover:border-primary transition-all group text-sm"
               >
-                <div className="w-12 h-12 grid place-items-center border hairline">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{t.contact.emailLabel}</div>
-                  <div className="text-foreground group-hover:text-primary transition-colors">contact@hanihebashy.com</div>
+                <MessageCircle className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">{t.contact.whatsapp}</span>
+                  <span className="text-foreground/80 group-hover:text-primary transition-colors">+995 577 18 77 50</span>
                 </div>
               </a>
             </div>
