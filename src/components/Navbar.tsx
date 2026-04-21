@@ -16,13 +16,14 @@ export const Navbar = () => {
 
   const links = [
     { id: "about", label: t.nav.about },
-    { id: "model", label: t.nav.model },
+    { id: "model", label: t.nav.expertise },
     { id: "portfolio", label: t.nav.portfolio },
-    { id: "esg", label: t.nav.esg },
-    { id: "growth", label: t.nav.growth },
-    { id: "media", label: t.nav.media },
+    { id: "esg", label: t.nav.model },
+    { id: "growth", label: lang === "ar" ? "القيادة" : "Leadership" },
     { id: "contact", label: t.nav.contact },
   ];
+
+  const irLabel = lang === "ar" ? "علاقات المستثمرين" : "Investor Relations";
 
   return (
     <header
@@ -36,11 +37,17 @@ export const Navbar = () => {
             H
           </span>
           <div className="leading-tight">
-            <div className={`text-sm font-medium tracking-wider ${lang === "ar" ? "" : "uppercase"}`}>
-              {lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}
+            <div
+              className="font-display text-sm font-medium text-foreground"
+              style={{ letterSpacing: "0.04em" }}
+            >
+              {lang === "ar" ? "مجموعة حبشي القابضة" : "HEBASHI HOLDING GROUP"}
             </div>
-            <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}
+            <div
+              className="text-[10px] uppercase text-muted-foreground"
+              style={{ letterSpacing: "0.28em" }}
+            >
+              {lang === "ar" ? "تأسست ٢٠٠٨" : "EST. 2008"}
             </div>
           </div>
         </a>
@@ -66,8 +73,12 @@ export const Navbar = () => {
             <Globe className="w-3.5 h-3.5" />
             {t.langToggle}
           </button>
-          <a href="#contact" className="hidden md:inline-flex btn-gold !py-2.5 !px-5 text-xs">
-            {t.contact.title.replace(".", "")}
+          <a
+            href="#contact"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+            style={{ letterSpacing: "0.18em" }}
+          >
+            {irLabel} →
           </a>
           <button
             className="lg:hidden p-2 text-foreground"

@@ -62,11 +62,14 @@ export const Hero = () => {
             transition={{ duration: 0.9, delay: 0.5 }}
             className="flex flex-wrap gap-4"
           >
-            <a href="#contact" className="btn-gold group">
+            <a
+              href="#contact"
+              className="btn-gold group"
+              style={{ letterSpacing: "0.22em" }}
+            >
               {t.hero.ctaPrimary}
               <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
             </a>
-            <a href="#about" className="btn-ghost-gold">{t.hero.ctaSecondary}</a>
           </motion.div>
 
           <motion.div
