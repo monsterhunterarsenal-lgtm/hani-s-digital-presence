@@ -16,10 +16,11 @@ export const Navbar = () => {
 
   const links = [
     { id: "about", label: t.nav.about },
-    { id: "expertise", label: t.nav.expertise },
+    { id: "model", label: t.nav.model },
     { id: "portfolio", label: t.nav.portfolio },
+    { id: "esg", label: t.nav.esg },
+    { id: "growth", label: t.nav.growth },
     { id: "media", label: t.nav.media },
-    { id: "testimonials", label: t.nav.testimonials },
     { id: "contact", label: t.nav.contact },
   ];
 
@@ -39,7 +40,7 @@ export const Navbar = () => {
               {lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}
             </div>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashy Holding Group"}
+              {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}
             </div>
           </div>
         </a>

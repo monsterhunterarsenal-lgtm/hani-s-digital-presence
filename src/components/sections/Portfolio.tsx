@@ -57,11 +57,29 @@ export const Portfolio = () => {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mb-24">
           {t.portfolio.sectors.map((s, i) => (
             <Reveal key={s} delay={i * 0.04}>
               <div className="bg-background p-6 text-center hover:bg-surface-2 transition-colors duration-500 h-full grid place-items-center">
                 <span className="text-sm text-foreground/85">{s}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Countries */}
+        <Reveal>
+          <div className="text-center mb-10">
+            <div className="eyebrow mb-3">{t.portfolio.countriesTitle}</div>
+            <div className="gold-divider max-w-xs mx-auto" />
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border">
+          {t.portfolio.countries.map((c, i) => (
+            <Reveal key={c} delay={i * 0.05}>
+              <div className="bg-background p-5 text-center hover:bg-surface-2 transition-colors duration-500 h-full grid place-items-center">
+                <span className="text-xs uppercase tracking-[0.18em] text-foreground/85">{c}</span>
               </div>
             </Reveal>
           ))}

@@ -1,7 +1,7 @@
 export type Lang = "en" | "ar";
 
 export interface Content {
-  nav: { about: string; expertise: string; portfolio: string; media: string; testimonials: string; contact: string };
+  nav: { about: string; expertise: string; portfolio: string; model: string; esg: string; growth: string; media: string; testimonials: string; contact: string };
   hero: {
     eyebrow: string;
     titleLine1: string;
@@ -26,6 +26,16 @@ export interface Content {
     intro: string;
     items: { title: string; description: string }[];
   };
+  businessModel: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    layers: { title: string; description: string; points: string[] }[];
+    aiTitle: string;
+    aiIntro: string;
+    aiPoints: string[];
+    aiQuote: string;
+  };
   portfolio: {
     eyebrow: string;
     title: string;
@@ -33,6 +43,23 @@ export interface Content {
     platforms: { name: string; tag: string; description: string }[];
     sectors: string[];
     sectorsTitle: string;
+    countriesTitle: string;
+    countries: string[];
+  };
+  esg: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    pillars: { title: string; sdg: string; description: string }[];
+    frameworks: string;
+    frameworkList: string[];
+  };
+  growth: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: string[];
+    closing: string;
   };
   media: {
     eyebrow: string;
@@ -73,39 +100,39 @@ export interface Content {
 
 export const content: Record<Lang, Content> = {
   en: {
-    nav: { about: "About", expertise: "Expertise", portfolio: "Ventures", media: "Media", testimonials: "Voices", contact: "Contact" },
+    nav: { about: "About", expertise: "Expertise", portfolio: "Ventures", model: "Model", esg: "ESG", growth: "Strategy", media: "Media", testimonials: "Voices", contact: "Contact" },
     hero: {
-      eyebrow: "Hani Hebashy — Chairman & CEO, Hebashy Holding Group",
-      titleLine1: "Building Cross-Border",
-      titleLine2: "Businesses Driven by Values",
+      eyebrow: "Hani Hebashy — Chairman & CEO, Hebashi Holding Group",
+      titleLine1: "Building Platforms",
+      titleLine2: "That Shape Markets",
       subtitle:
-        "From Egypt to seven countries — a platform builder transforming fragmented opportunities into scalable, asset-backed ecosystems enhanced by intelligence and integration.",
+        "Hebashi Holding Group is a diversified international platform — transforming fragmented opportunities into scalable, asset-backed ecosystems enhanced by intelligence, integration, and disciplined execution.",
       ctaPrimary: "Partner With Hani",
-      ctaSecondary: "Explore the Vision",
+      ctaSecondary: "Explore the Platform",
       stats: [
-        { value: "2008", label: "Founded" },
-        { value: "7", label: "Countries" },
-        { value: "970+", label: "Team Members" },
-        { value: "8", label: "Ventures" },
+        { value: "2008", label: "FOUNDED" },
+        { value: "6", label: "COUNTRIES" },
+        { value: "970+", label: "TEAM MEMBERS" },
+        { value: "8", label: "CORE SECTORS" },
       ],
     },
     about: {
       eyebrow: "About",
-      title: "A cross-border leader. A platform builder.",
+      title: "A platform builder. Not a market follower.",
       lead:
-        "We are not building for the present moment. We are building platforms that anticipate the future — where capital, opportunity, and intelligence converge.",
+        "Hebashi Holding Group does not follow markets. It builds the platforms that shape them.",
       paragraphs: [
-        "Hani Hebashy is the Chairman & CEO of Hebashy Holding Group (HHG) and President of the Georgian-Arab-African Business Union — a diversified international holding platform operating across seven countries and eight core industries.",
-        "His journey began in Egypt with youth employment initiatives, expanded through Saudi Arabia in CSR and sustainability, took on global perspective in Qatar and Malaysia, and culminated in Georgia with the founding of Hebashy Holding Group — a next-generation institutional platform combining strategic geography, integrated operations, AI-driven intelligence and vision-led leadership.",
-        "His approach: build with integrity, scale with discipline, and treat partnerships as long-term strategic assets.",
+        "Hebashi Holding Group (HHG) is a diversified international holding platform that builds, scales, and operates integrated business ecosystems across high-growth sectors. Established in 2008, HHG today operates across 6 countries, employs 970+ professionals, and maintains exposure across 8 core industries.",
+        "The Group operates through a centralized holding structure — ensuring disciplined capital allocation, strategic oversight, and scalable value creation across its subsidiaries and platforms. HHG captures value across the full lifecycle: originating, operating, and scaling assets within a unified, intelligence-driven structure.",
+        "Led by Hani Hebashy — Chairman & CEO and President of the Georgian-Arab-African Business Union — the Group is supported by an international advisory council and governance frameworks aligned with global capital markets standards.",
       ],
       journey: [
-        { year: "2008", place: "Egypt", note: "Youth employment & enterprise" },
+        { year: "2008", place: "Egypt", note: "Founded — youth employment & enterprise" },
         { year: "2012", place: "Saudi Arabia", note: "CSR & sustainability" },
         { year: "2015", place: "Qatar & Malaysia", note: "Global exposure" },
-        { year: "Today", place: "Georgia", note: "Founded Hebashy Holding Group" },
+        { year: "Today", place: "Georgia", note: "Strategic hub of Hebashi Holding Group" },
       ],
-      role: "Chairman & CEO, Hebashy Holding Group",
+      role: "Chairman & CEO, Hebashi Holding Group",
       union: "President, Georgian-Arab-African Business Union",
     },
     expertise: {
@@ -122,16 +149,50 @@ export const content: Record<Lang, Content> = {
         { title: "Economic Diplomacy", description: "Leveraging cross-border relationships to unlock opportunity and mitigate geopolitical risk." },
       ],
     },
+    businessModel: {
+      eyebrow: "Business Model",
+      title: "A three-layered platform architecture.",
+      intro:
+        "HHG captures value across the full lifecycle — from origination to monetization — through a unified, intelligence-driven structure.",
+      layers: [
+        {
+          title: "Platform Creation",
+          description: "Originating value through real assets and structured opportunities.",
+          points: ["Strategic investments in real assets", "Structuring scalable, high-potential opportunities"],
+        },
+        {
+          title: "Platform Activation",
+          description: "Monetizing assets through integrated operations and services.",
+          points: ["Operations, services, and asset utilization", "Diversified, recurring revenue models"],
+        },
+        {
+          title: "Platform Enablement",
+          description: "Sustaining performance through enabling infrastructure.",
+          points: ["Telecommunications, education, AI-driven systems", "Long-term capability development"],
+        },
+      ],
+      aiTitle: "AI as a Strategic Control Layer",
+      aiIntro:
+        "Artificial Intelligence is embedded across all operations as a horizontal capability — a decision-support and control layer enhancing precision, scalability, and timing across markets.",
+      aiPoints: [
+        "Investment intelligence and risk analysis",
+        "Operational optimization and cost efficiency",
+        "Predictive demand and market analytics",
+        "Process automation and performance monitoring",
+      ],
+      aiQuote:
+        "AI functions as a decision-support and control layer — enhancing precision, scalability, and timing across markets.",
+    },
     portfolio: {
       eyebrow: "Ventures",
       title: "Operating platforms shaping markets.",
       intro:
         "HHG executes through specialized subsidiaries — operationally autonomous, strategically centralized, and data-driven by design.",
       platforms: [
-        { name: "ZMC", tag: "Construction & Engineering", description: "Construction and engineering execution across HHG’s real-asset portfolio." },
+        { name: "ZMC", tag: "Construction & Engineering", description: "Construction and engineering execution across HHG's real-asset portfolio." },
         { name: "CTC", tag: "Telecommunications", description: "Telecommunications and outsourcing solutions powering enterprise infrastructure." },
         { name: "OTI Real Estate", tag: "Real Estate", description: "Real estate services and development across strategic geographies." },
-        { name: "Caucasus Paradise", tag: "Tourism & Hospitality", description: "A tourism and travel platform anchored in HHG’s Georgian hub." },
+        { name: "Caucasus Paradise", tag: "Tourism & Hospitality", description: "A tourism and travel platform anchored in HHG's Georgian hub." },
       ],
       sectorsTitle: "Eight core sectors",
       sectors: [
@@ -144,6 +205,38 @@ export const content: Record<Lang, Content> = {
         "Education & Development",
         "Sports Investment",
       ],
+      countriesTitle: "Six countries · One hub-and-network model",
+      countries: ["Georgia · Strategic Hub", "United Arab Emirates", "Egypt", "Turkey", "Oman", "Malaysia"],
+    },
+    esg: {
+      eyebrow: "ESG & Impact",
+      title: "Aligned with the UN Sustainable Development Goals.",
+      intro:
+        "HHG embeds ESG as a core operational value, aligning growth with measurable societal impact and progressing toward global disclosure frameworks.",
+      pillars: [
+        { title: "Economic Growth & Infrastructure", sdg: "SDG 8 · 9", description: "Scalable investments, job creation, and infrastructure development." },
+        { title: "Governance & Transparency", sdg: "SDG 16", description: "Compliance, ethical operations, and institutional accountability." },
+        { title: "Innovation & AI Enablement", sdg: "SDG 9", description: "Technology and intelligence applied for performance and growth." },
+        { title: "Sustainability & Environment", sdg: "SDG 11 · 12 · 13", description: "Sustainable development and responsible resource use." },
+        { title: "Global Partnerships", sdg: "SDG 17", description: "Cross-border alliances that expand reach and execution." },
+        { title: "Human Capital & Inclusion", sdg: "SDG 4 · 5 · 10", description: "Empowering talent, diversity, and equal opportunity." },
+      ],
+      frameworks: "Progressing toward alignment with:",
+      frameworkList: ["Global Reporting Initiative (GRI)", "IFC Performance Standards", "International ESG disclosure frameworks"],
+    },
+    growth: {
+      eyebrow: "Growth Strategy",
+      title: "Toward capital markets readiness.",
+      intro:
+        "HHG's forward strategy converges integrated platforms, AI infrastructure, and institutional governance — moving the Group toward capital market participation.",
+      items: [
+        "Scaling integrated platforms across sectors",
+        "Expanding asset-backed investment structures",
+        "Embedding AI across all operations",
+        "Strengthening institutional partnerships",
+        "Advancing toward IPO readiness",
+      ],
+      closing: "Institutional-grade · Investor-ready · ESG & SDG aligned · AI-positioned · IPO-direction ready.",
     },
     media: {
       eyebrow: "Media & Press",
@@ -169,8 +262,13 @@ export const content: Record<Lang, Content> = {
     },
     philosophy: {
       eyebrow: "Philosophy",
-      title: "Three principles. Held without compromise.",
-      pillars: ["Values before profits.", "Sustainability before scale.", "Reputation before revenue."],
+      title: "Building platforms, not companies.",
+      pillars: [
+        "Building platforms, not companies.",
+        "Thinking in decades, acting with precision.",
+        "Leveraging complexity as advantage.",
+        "Partnership-driven growth.",
+      ],
       quote:
         "We are not building for the present moment. We are building platforms that anticipate the future — where capital, opportunity, and intelligence converge to shape what comes next.",
       quoteAuthor: "Hani Hebashy",
@@ -189,43 +287,43 @@ export const content: Record<Lang, Content> = {
       sent: "Thank you. Your message has been received.",
     },
     footer: {
-      tagline: "Building platforms that shape what comes next.",
+      tagline: "HHG does not follow markets. It builds the platforms that shape them.",
       rights: "All rights reserved.",
     },
     langToggle: "العربية",
   },
   ar: {
-    nav: { about: "نبذة", expertise: "الخبرات", portfolio: "المشاريع", media: "الإعلام", testimonials: "آراء", contact: "تواصل" },
+    nav: { about: "نبذة", expertise: "الخبرات", portfolio: "المشاريع", model: "النموذج", esg: "الاستدامة", growth: "النمو", media: "الإعلام", testimonials: "آراء", contact: "تواصل" },
     hero: {
       eyebrow: "هاني حبشي — رئيس مجلس الإدارة والرئيس التنفيذي لمجموعة حبشي القابضة",
-      titleLine1: "نبني شركات عابرة للحدود",
-      titleLine2: "تقودها القيم قبل الأرباح",
+      titleLine1: "نبني منصات",
+      titleLine2: "تصنع الأسواق",
       subtitle:
-        "من مصر إلى سبع دول — باني منصات يحوّل الفرص المتفرقة إلى منظومات قابلة للتوسع، مدعومة بالأصول، ومُعزَّزة بالذكاء والتكامل.",
+        "مجموعة حبشي القابضة منصة دولية متنوعة — تحوّل الفرص المتفرقة إلى منظومات قابلة للتوسع، مدعومة بالأصول، ومُعزَّزة بالذكاء والتكامل والتنفيذ المنضبط.",
       ctaPrimary: "ابدأ شراكة",
-      ctaSecondary: "اكتشف الرؤية",
+      ctaSecondary: "اكتشف المنصة",
       stats: [
         { value: "٢٠٠٨", label: "سنة التأسيس" },
-        { value: "٧", label: "دول" },
+        { value: "٦", label: "دول" },
         { value: "+٩٧٠", label: "أعضاء الفريق" },
-        { value: "٨", label: "مشاريع" },
+        { value: "٨", label: "قطاعات أساسية" },
       ],
     },
     about: {
       eyebrow: "نبذة",
-      title: "قائد عابر للحدود. باني منصات.",
+      title: "باني منصات. لا تابع للأسواق.",
       lead:
-        "نحن لا نبني للحظة الراهنة. نبني منصات تستشرف المستقبل — حيث يلتقي رأس المال والفرصة والذكاء.",
+        "مجموعة حبشي القابضة لا تتبع الأسواق. بل تبني المنصات التي تصنعها.",
       paragraphs: [
-        "هاني حبشي هو رئيس مجلس الإدارة والرئيس التنفيذي لمجموعة حبشي القابضة (HHG)، ورئيس اتحاد الأعمال الجورجي العربي الإفريقي — منصة قابضة دولية متنوعة تعمل عبر سبع دول وثمانية قطاعات أساسية.",
-        "بدأت رحلته في مصر بمبادرات تشغيل الشباب وريادة الأعمال، وامتدت في المملكة العربية السعودية عبر المسؤولية المجتمعية والاستدامة، واكتسبت بُعدًا عالميًا في قطر وماليزيا، ثم تُوّجت في جورجيا بتأسيس مجموعة حبشي القابضة — منصة مؤسسية من الجيل الجديد تجمع بين الموقع الجغرافي الاستراتيجي والعمليات المتكاملة والذكاء الاصطناعي والقيادة المُلهَمة.",
-        "منهجه: نبني بالنزاهة، ونتوسع بالانضباط، ونتعامل مع الشراكات بوصفها أصولًا استراتيجية طويلة الأجل.",
+        "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو. تأسست عام 2008، وتعمل اليوم في 6 دول، وتضم أكثر من 970 محترفًا، وتغطي 8 قطاعات أساسية.",
+        "تعمل المجموعة من خلال هيكل قابض مركزي يضمن التخصيص المنضبط لرأس المال والإشراف الاستراتيجي وخلق قيمة قابلة للتوسع عبر شركاتها ومنصاتها. تحتجز المجموعة القيمة عبر دورة الحياة الكاملة: من النشأة إلى التشغيل والتوسع داخل بنية موحّدة مدفوعة بالذكاء.",
+        "بقيادة هاني حبشي — رئيس مجلس الإدارة والرئيس التنفيذي ورئيس اتحاد الأعمال الجورجي العربي الإفريقي — تستند المجموعة إلى مجلس استشاري دولي وأطر حوكمة متوافقة مع معايير أسواق المال العالمية.",
       ],
       journey: [
-        { year: "٢٠٠٨", place: "مصر", note: "تشغيل الشباب وريادة الأعمال" },
+        { year: "٢٠٠٨", place: "مصر", note: "التأسيس — تشغيل الشباب وريادة الأعمال" },
         { year: "٢٠١٢", place: "السعودية", note: "المسؤولية المجتمعية والاستدامة" },
         { year: "٢٠١٥", place: "قطر وماليزيا", note: "حضور دولي" },
-        { year: "اليوم", place: "جورجيا", note: "تأسيس مجموعة حبشي القابضة" },
+        { year: "اليوم", place: "جورجيا", note: "المحور الاستراتيجي للمجموعة" },
       ],
       role: "رئيس مجلس الإدارة والرئيس التنفيذي، مجموعة حبشي القابضة",
       union: "رئيس اتحاد الأعمال الجورجي العربي الإفريقي",
@@ -242,6 +340,25 @@ export const content: Record<Lang, Content> = {
         { title: "الذكاء الاصطناعي والأنظمة الذكية", description: "الذكاء الاصطناعي كطبقة تحكم أفقية — تحليلات وتنبؤات وأتمتة." },
         { title: "الدبلوماسية الاقتصادية", description: "الاستفادة من العلاقات العابرة للحدود لفتح فرص واحتواء المخاطر الجيوسياسية." },
       ],
+    },
+    businessModel: {
+      eyebrow: "نموذج الأعمال",
+      title: "بنية منصة من ثلاث طبقات.",
+      intro: "تحتجز المجموعة القيمة عبر دورة الحياة الكاملة — من النشأة إلى التحقيق — من خلال بنية موحّدة مدفوعة بالذكاء.",
+      layers: [
+        { title: "إنشاء المنصات", description: "توليد القيمة من الأصول الحقيقية والفرص المهيكلة.", points: ["استثمارات استراتيجية في الأصول الحقيقية", "هيكلة فرص قابلة للتوسع وعالية الإمكانات"] },
+        { title: "تفعيل المنصات", description: "تحقيق الإيرادات من الأصول عبر عمليات وخدمات متكاملة.", points: ["العمليات والخدمات واستثمار الأصول", "نماذج دخل متنوعة ومتكررة"] },
+        { title: "تمكين المنصات", description: "استدامة الأداء عبر بنية تحتية مُمكِّنة.", points: ["الاتصالات والتعليم والأنظمة الذكية", "تطوير القدرات على المدى الطويل"] },
+      ],
+      aiTitle: "الذكاء الاصطناعي كطبقة تحكم استراتيجية",
+      aiIntro: "الذكاء الاصطناعي مدمج في كل العمليات كقدرة أفقية — طبقة دعم قرار وتحكم تعزّز الدقة والقابلية للتوسع وحُسن التوقيت.",
+      aiPoints: [
+        "ذكاء استثماري وتحليل مخاطر",
+        "تحسين العمليات وكفاءة التكلفة",
+        "تحليلات تنبؤية للطلب والأسواق",
+        "أتمتة العمليات ومراقبة الأداء",
+      ],
+      aiQuote: "يعمل الذكاء الاصطناعي كطبقة دعم قرار وتحكم — تعزز الدقة والقابلية للتوسع وحُسن التوقيت في الأسواق.",
     },
     portfolio: {
       eyebrow: "المشاريع",
@@ -264,6 +381,36 @@ export const content: Record<Lang, Content> = {
         "التعليم والتطوير",
         "الاستثمار الرياضي",
       ],
+      countriesTitle: "ست دول · نموذج محاور وشبكات",
+      countries: ["جورجيا · المحور الاستراتيجي", "الإمارات العربية المتحدة", "مصر", "تركيا", "عُمان", "ماليزيا"],
+    },
+    esg: {
+      eyebrow: "الاستدامة والأثر",
+      title: "متوافقون مع أهداف الأمم المتحدة للتنمية المستدامة.",
+      intro: "تتبنى المجموعة معايير ESG كقيمة تشغيلية أساسية، وتربط النمو بأثر مجتمعي قابل للقياس، مع التقدم نحو أطر الإفصاح العالمية.",
+      pillars: [
+        { title: "النمو الاقتصادي والبنية التحتية", sdg: "SDG 8 · 9", description: "استثمارات قابلة للتوسع وخلق فرص عمل وتطوير بنية تحتية." },
+        { title: "الحوكمة والشفافية", sdg: "SDG 16", description: "الالتزام والممارسات الأخلاقية والمساءلة المؤسسية." },
+        { title: "الابتكار والذكاء الاصطناعي", sdg: "SDG 9", description: "توظيف التقنية والذكاء لتحقيق الأداء والنمو." },
+        { title: "الاستدامة والبيئة", sdg: "SDG 11 · 12 · 13", description: "تنمية مستدامة واستخدام مسؤول للموارد." },
+        { title: "الشراكات العالمية", sdg: "SDG 17", description: "تحالفات عابرة للحدود توسّع الوصول والتنفيذ." },
+        { title: "رأس المال البشري والشمول", sdg: "SDG 4 · 5 · 10", description: "تمكين المواهب والتنوع وتكافؤ الفرص." },
+      ],
+      frameworks: "نتقدم نحو التوافق مع:",
+      frameworkList: ["مبادرة الإبلاغ العالمية (GRI)", "معايير أداء IFC", "أطر الإفصاح الدولية للاستدامة"],
+    },
+    growth: {
+      eyebrow: "استراتيجية النمو",
+      title: "نحو الجاهزية لأسواق المال.",
+      intro: "تجمع استراتيجية المجموعة بين المنصات المتكاملة والبنية التحتية الذكية والحوكمة المؤسسية — تمهيدًا للمشاركة في أسواق المال.",
+      items: [
+        "توسيع المنصات المتكاملة عبر القطاعات",
+        "توسيع هياكل الاستثمار المدعومة بالأصول",
+        "تضمين الذكاء الاصطناعي في جميع العمليات",
+        "تعزيز الشراكات المؤسسية",
+        "التقدم نحو الجاهزية للطرح العام",
+      ],
+      closing: "بمعايير مؤسسية · جاهز للمستثمرين · متوافق مع ESG وأهداف التنمية · مُمكَّن بالذكاء الاصطناعي · جاهز اتجاهيًا للطرح.",
     },
     media: {
       eyebrow: "الإعلام والصحافة",
@@ -289,8 +436,13 @@ export const content: Record<Lang, Content> = {
     },
     philosophy: {
       eyebrow: "الفلسفة",
-      title: "ثلاثة مبادئ. لا تساوم.",
-      pillars: ["القيم قبل الأرباح.", "الاستدامة قبل التوسع.", "السمعة قبل الإيرادات."],
+      title: "نبني منصات، لا شركات.",
+      pillars: [
+        "نبني منصات، لا شركات.",
+        "نفكر بعقود، ونتحرك بدقة.",
+        "نحوّل التعقيد إلى ميزة.",
+        "نمو مدفوع بالشراكات.",
+      ],
       quote:
         "نحن لا نبني للحظة الراهنة. نبني منصات تستشرف المستقبل — حيث يلتقي رأس المال والفرصة والذكاء ليصنعوا ما هو آتٍ.",
       quoteAuthor: "هاني حبشي",
@@ -309,7 +461,7 @@ export const content: Record<Lang, Content> = {
       sent: "شكرًا لك. تم استلام رسالتك.",
     },
     footer: {
-      tagline: "نبني منصات تصنع ما هو آتٍ.",
+      tagline: "المجموعة لا تتبع الأسواق. بل تبني المنصات التي تصنعها.",
       rights: "جميع الحقوق محفوظة.",
     },
     langToggle: "English",

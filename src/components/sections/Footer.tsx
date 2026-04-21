@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className="leading-tight">
               <div className="text-sm font-medium">{lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}</div>
               <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashy Holding Group"}
+                {lang === "ar" ? "مجموعة حبشي القابضة" : "Hebashi Holding Group"}
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@ export const Footer = () => {
 
       <div className="container-x mt-12 pt-6 border-t hairline flex flex-col md:flex-row gap-4 justify-between items-center text-xs text-muted-foreground">
         <div>© {new Date().getFullYear()} {lang === "ar" ? "هاني حبشي" : "Hani Hebashy"}. {t.footer.rights}</div>
-        <div className="font-display italic">Building platforms that shape what comes next.</div>
+        <div className="font-display italic">HHG builds the platforms that shape markets.</div>
       </div>
     </footer>
   );
