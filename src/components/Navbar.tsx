@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import { Menu, X, Globe } from "lucide-react";
-import hhgLogo from "@/assets/hhg-monogram.png";
+import hhgLogo from "@/assets/hhg-logo.png";
 
 export const Navbar = () => {
   const { t, toggle, lang } = useLang();
@@ -38,22 +38,11 @@ export const Navbar = () => {
           <img
             src={hhgLogo}
             alt="HHG — Hebashi Holding Group"
-            width={40}
-            height={40}
-            className="w-10 h-10 object-contain"
+            className="h-10 w-auto object-contain"
           />
-          <div className="leading-tight">
-            <div
-              className="font-display text-sm font-medium text-foreground"
-              style={{ letterSpacing: "0.04em" }}
-            >
+          <div className="leading-tight sr-only">
+            <div className="font-display text-sm font-medium text-foreground">
               {lang === "ar" ? "مجموعة حبشي القابضة" : "HEBASHI HOLDING GROUP"}
-            </div>
-            <div
-              className="text-[10px] uppercase text-muted-foreground"
-              style={{ letterSpacing: "0.28em" }}
-            >
-              {lang === "ar" ? "تأسست ٢٠٠٨" : "EST. 2008"}
             </div>
           </div>
         </a>
