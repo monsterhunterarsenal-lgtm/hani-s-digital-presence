@@ -2,6 +2,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { WorldMap } from "@/components/WorldMap";
+import heroChairman from "@/assets/hero-chairman.jpeg";
 
 export const Hero = () => {
   const { t, dir } = useLang();
@@ -81,7 +82,18 @@ export const Hero = () => {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="lg:col-span-5 relative"
           >
-            <WorldMap compact label={t.hero.mapHubLabel} />
+            <div className="relative border hairline-strong overflow-hidden">
+              <img
+                src={heroChairman}
+                alt="HHG Chairman at Tbilisi headquarters"
+                className="w-full h-auto object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-[10px] uppercase tracking-[0.3em] text-primary">
+                Tbilisi · Headquarters
+              </div>
+            </div>
           </motion.div>
         </div>
 
