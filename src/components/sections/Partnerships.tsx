@@ -1,12 +1,5 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
-import otiLogo from "@/assets/partner-oti.jpeg";
-import zmcLogo from "@/assets/partner-zmc.png";
-
-const partnerLogos = [
-  { src: otiLogo, alt: "OTI Estate" },
-  { src: zmcLogo, alt: "ZMC — Zaza Management Construction" },
-];
 
 export const Partnerships = () => {
   const { t } = useLang();
@@ -15,10 +8,7 @@ export const Partnerships = () => {
       <div className="container-x">
         <div className="max-w-3xl mb-16">
           <Reveal>
-            <div className="eyebrow mb-4">
-              <span className="text-primary mr-2 rtl:mr-0 rtl:ml-2">{t.partnerships.sectionNumber}</span>
-              <span>— {t.partnerships.eyebrow}</span>
-            </div>
+            <div className="eyebrow mb-4">{t.partnerships.eyebrow}</div>
             <h2 className="font-display text-4xl md:text-5xl leading-tight mb-6">
               {t.partnerships.title}
               <span className="italic text-gold">{t.partnerships.titleAccent}</span>
@@ -41,27 +31,6 @@ export const Partnerships = () => {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.15}>
-          <div className="border-t border-b hairline py-10 md:py-14 mb-10">
-            <div className="text-center eyebrow mb-8">Selected Group Entities</div>
-            <div className="grid grid-cols-2 gap-px bg-border max-w-2xl mx-auto">
-              {partnerLogos.map((logo) => (
-                <div
-                  key={logo.alt}
-                  className="bg-background flex items-center justify-center p-8 md:p-12 h-40 md:h-48"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
 
         <Reveal delay={0.2}>
           <p className="text-center font-display italic text-base md:text-lg text-muted-foreground">

@@ -8,11 +8,9 @@ export const Hero = () => {
 
   return (
     <section id="top" className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden pt-24">
-      {/* Ambient gold glow */}
       <div className="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-gradient-radial-gold opacity-70 pointer-events-none" />
       <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-gradient-radial-gold opacity-40 pointer-events-none" />
 
-      {/* Subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
@@ -23,7 +21,7 @@ export const Hero = () => {
       />
 
       <div className="container-x relative py-20">
-        <div className="max-w-4xl space-y-8">
+        <div className="max-w-5xl space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,7 +35,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[2.5rem] sm:text-5xl lg:text-7xl leading-[1.05] font-medium"
+            className="font-display text-[2.25rem] sm:text-5xl lg:text-7xl leading-[1.05] font-medium"
           >
             <span className="block">{t.hero.titleLine1}</span>
             <span className="block text-gold italic">{t.hero.titleLine2}</span>
@@ -47,7 +45,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-            className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed"
           >
             {t.hero.subtitle}
           </motion.p>
@@ -58,12 +56,12 @@ export const Hero = () => {
             transition={{ duration: 0.9, delay: 0.5 }}
             className="flex flex-wrap gap-4"
           >
-            <a
-              href="#contact"
-              className="btn-gold group"
-              style={{ letterSpacing: "0.22em" }}
-            >
+            <a href="#platforms" className="btn-gold group">
               {t.hero.ctaPrimary}
+              <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+            </a>
+            <a href="#investors" className="btn-ghost-gold group">
+              {t.hero.ctaSecondary}
               <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
             </a>
           </motion.div>
@@ -84,7 +82,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
         <div className="flex flex-col items-center gap-2 animate-pulse-gold">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Scroll</span>

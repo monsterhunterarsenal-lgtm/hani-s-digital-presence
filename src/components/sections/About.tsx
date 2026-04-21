@@ -1,97 +1,42 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
-import { ZoomableImage } from "@/components/Lightbox";
-import aboutPortrait from "@/assets/about-portrait.jpeg";
 
 export const About = () => {
-  const { t, lang } = useLang();
-
-  const definitions = lang === "ar"
-    ? [
-        { label: "المنصب", value: "رئيس مجلس الإدارة والرئيس التنفيذي" },
-        { label: "الرئاسة", value: "اتحاد الأعمال الجورجي العربي الأفريقي" },
-        { label: "الحوكمة", value: "مجلس استشاري دولي · مستشارون قانونيون وماليون" },
-      ]
-    : [
-        { label: "Role", value: "Chairman & Chief Executive Officer" },
-        { label: "Presidency", value: "Georgian-Arab-African Business Union" },
-        { label: "Governance", value: "International Advisory Council · Legal & Financial Counsel" },
-      ];
+  const { t } = useLang();
 
   return (
     <section id="about" className="py-28 md:py-36 relative">
       <div className="container-x">
-        <Reveal>
-          <div className="eyebrow mb-4">{t.about.eyebrow}</div>
-        </Reveal>
-
-        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-start mt-8">
-          {/* Portrait column */}
-          <Reveal delay={0.1}>
-            <div className="relative border border-border bg-card">
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <ZoomableImage src={aboutPortrait} alt="Hani Hebashy, Chairman & CEO of Hebashi Holding Group" />
-                {/* inset gold border */}
-                <div
-                  className="absolute pointer-events-none"
-                  style={{
-                    inset: "12px",
-                    border: "1px solid hsl(var(--primary) / 0.35)",
-                  }}
-                />
-              </div>
-              <div className="px-6 pt-5 pb-8 text-left rtl:text-right">
-                <div className="font-display text-[26px] leading-tight text-foreground">
-                  Hani Hebashy
-                </div>
-                <div
-                  className="mt-2 text-[11px] uppercase font-medium"
-                  style={{
-                    letterSpacing: "0.24em",
-                    color: "hsl(var(--primary))",
-                  }}
-                >
-                  {lang === "ar" ? "رئيس مجلس الإدارة والرئيس التنفيذي" : "Chairman & CEO"}
-                </div>
-              </div>
-            </div>
+        <div className="max-w-3xl mb-16">
+          <Reveal>
+            <div className="eyebrow mb-4">{t.about.eyebrow}</div>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight mb-8">{t.about.title}</h2>
           </Reveal>
 
-          {/* Text column */}
-          <div className="space-y-10">
-            <Reveal>
-              <h2 className="font-display text-4xl md:text-5xl leading-tight">
-                {t.about.title}
-              </h2>
-            </Reveal>
-
-            <div className="space-y-6">
-              {t.about.paragraphs.slice(0, 2).map((p, i) => (
-                <Reveal key={i} delay={0.1 + i * 0.08}>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{p}</p>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delay={0.3}>
-              <dl className="border-t hairline">
-                {definitions.map((d) => (
-                  <div
-                    key={d.label}
-                    className="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] gap-6 py-5 border-b hairline"
-                  >
-                    <dt
-                      className="text-[11px] uppercase font-medium text-muted-foreground"
-                      style={{ letterSpacing: "0.2em" }}
-                    >
-                      {d.label}
-                    </dt>
-                    <dd className="text-sm md:text-base text-foreground">{d.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
+          <div className="space-y-6">
+            {t.about.paragraphs.map((p, i) => (
+              <Reveal key={i} delay={0.1 + i * 0.08}>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{p}</p>
+              </Reveal>
+            ))}
           </div>
+        </div>
+
+        <Reveal delay={0.2}>
+          <div className="eyebrow mb-6">{t.about.principlesTitle}</div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-3 gap-px bg-border">
+          {t.about.principles.map((p, i) => (
+            <Reveal key={p.title} delay={0.1 + i * 0.08}>
+              <div className="bg-background h-full p-8 md:p-10 group hover:bg-surface-2 transition-colors duration-500 relative">
+                <div className="absolute top-0 left-0 h-px w-0 bg-gradient-gold group-hover:w-full transition-all duration-700" />
+                <div className="font-display text-sm text-primary tracking-[0.3em] uppercase mb-4">0{i + 1}</div>
+                <div className="font-display text-xl md:text-2xl mb-3 leading-snug">{p.title}</div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
