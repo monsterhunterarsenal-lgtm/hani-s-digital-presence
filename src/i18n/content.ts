@@ -113,15 +113,15 @@ export interface Content {
 
 export const content: Record<Lang, Content> = {
   en: {
-    nav: { about: "About", expertise: "Expertise", portfolio: "Ventures", model: "Model", esg: "ESG", growth: "Strategy", media: "Media", testimonials: "Voices", contact: "Contact" },
+    nav: { about: "Overview", expertise: "Sectors", portfolio: "Geography", model: "Platforms", esg: "ESG", growth: "Strategy", media: "Media", testimonials: "Voices", contact: "Contact" },
     hero: {
-      eyebrow: "Hani Hebashy — Chairman & CEO, Hebashi Holding Group",
+      eyebrow: "● Institutional Platform Builder · Since 2008",
       titleLine1: "Building Platforms",
       titleLine2: "That Shape Markets",
       subtitle:
         "Hebashi Holding Group is a diversified international platform — transforming fragmented opportunities into scalable, asset-backed ecosystems enhanced by intelligence, integration, and disciplined execution.",
-      ctaPrimary: "Partner With Hani",
-      ctaSecondary: "Explore the Platform",
+      ctaPrimary: "Investor Relations",
+      ctaSecondary: "",
       stats: [
         { value: "2008", label: "FOUNDED" },
         { value: "6", label: "COUNTRIES" },
@@ -304,15 +304,15 @@ export const content: Record<Lang, Content> = {
       quoteAuthor: "Hani Hebashy",
     },
     contact: {
-      eyebrow: "Contact",
-      title: "Start a conversation.",
-      intro: "For investment, partnership, speaking, or media inquiries.",
+      eyebrow: "Investor Relations",
+      title: "Engage with Hebashi Holding Group.",
+      intro: "For institutional investors, strategic partners, and capital market counterparties.",
       name: "Full name",
       email: "Email address",
       company: "Company / Organization",
-      message: "How can we help?",
+      message: "Nature of inquiry",
       submit: "Send Message",
-      whatsapp: "WhatsApp",
+      whatsapp: "Direct Line",
       emailLabel: "Email",
       sent: "Thank you. Your message has been received.",
     },
@@ -323,15 +323,15 @@ export const content: Record<Lang, Content> = {
     langToggle: "العربية",
   },
   ar: {
-    nav: { about: "نبذة", expertise: "الخبرات", portfolio: "المشاريع", model: "النموذج", esg: "الاستدامة", growth: "النمو", media: "الإعلام", testimonials: "آراء", contact: "تواصل" },
+    nav: { about: "نظرة عامة", expertise: "القطاعات", portfolio: "الجغرافيا", model: "المنصات", esg: "الاستدامة", growth: "النمو", media: "الإعلام", testimonials: "آراء", contact: "تواصل" },
     hero: {
-      eyebrow: "هاني حبشي — رئيس مجلس الإدارة والرئيس التنفيذي لمجموعة حبشي القابضة",
+      eyebrow: "● باني منصات مؤسسية · منذ 2008",
       titleLine1: "نبني منصات",
       titleLine2: "تصنع الأسواق",
       subtitle:
         "مجموعة حبشي القابضة منصة دولية متنوعة — تحوّل الفرص المتفرقة إلى منظومات قابلة للتوسع، مدعومة بالأصول، ومُعزَّزة بالذكاء والتكامل والتنفيذ المنضبط.",
-      ctaPrimary: "ابدأ شراكة",
-      ctaSecondary: "اكتشف المنصة",
+      ctaPrimary: "علاقات المستثمرين",
+      ctaSecondary: "",
       stats: [
         { value: "٢٠٠٨", label: "سنة التأسيس" },
         { value: "٦", label: "دول" },
@@ -494,15 +494,15 @@ export const content: Record<Lang, Content> = {
       quoteAuthor: "هاني حبشي",
     },
     contact: {
-      eyebrow: "تواصل",
-      title: "لنبدأ حديثًا.",
-      intro: "للاستفسارات الاستثمارية والشراكات وطلبات المشاركة الإعلامية.",
+      eyebrow: "علاقات المستثمرين",
+      title: "تواصل مع مجموعة حبشي القابضة.",
+      intro: "للمستثمرين المؤسسيين والشركاء الاستراتيجيين ونظرائنا في أسواق المال.",
       name: "الاسم الكامل",
       email: "البريد الإلكتروني",
       company: "الشركة / الجهة",
-      message: "كيف يمكننا المساعدة؟",
+      message: "طبيعة الاستفسار",
       submit: "إرسال الرسالة",
-      whatsapp: "واتساب",
+      whatsapp: "خط مباشر",
       emailLabel: "البريد الإلكتروني",
       sent: "شكرًا لك. تم استلام رسالتك.",
     },
