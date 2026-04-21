@@ -1,5 +1,6 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Linkedin, Mail, MessageCircle, MapPin, Phone } from "lucide-react";
+import hhgLogo from "@/assets/hhg-monogram.png";
 
 export const Footer = () => {
   const { t, lang } = useLang();
@@ -8,9 +9,14 @@ export const Footer = () => {
       <div className="container-x grid md:grid-cols-3 gap-10 items-start">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 grid place-items-center bg-gradient-gold text-primary-foreground font-display text-lg font-bold">
-              HHG
-            </span>
+            <img
+              src={hhgLogo}
+              alt="HHG — Hebashi Holding Group"
+              width={44}
+              height={44}
+              loading="lazy"
+              className="w-11 h-11 object-contain"
+            />
             <div className="leading-tight">
               <div className="font-display text-sm font-medium" style={{ letterSpacing: "0.04em" }}>
                 {lang === "ar" ? "مجموعة حبشي القابضة" : "HEBASHI HOLDING GROUP"}
