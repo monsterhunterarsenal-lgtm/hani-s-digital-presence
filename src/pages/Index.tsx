@@ -2,32 +2,34 @@ import { LanguageProvider, useLang } from "@/i18n/LanguageContext";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
-import { Expertise } from "@/components/sections/Expertise";
 import { BusinessModel } from "@/components/sections/BusinessModel";
-import { Portfolio } from "@/components/sections/Portfolio";
+import { Platforms } from "@/components/sections/Platforms";
+import { Sectors } from "@/components/sections/Sectors";
+import { GlobalPresence } from "@/components/sections/GlobalPresence";
+import { AILayer } from "@/components/sections/AILayer";
+import { CompetitiveAdvantage } from "@/components/sections/CompetitiveAdvantage";
 import { Partnerships } from "@/components/sections/Partnerships";
 import { ESG } from "@/components/sections/ESG";
 import { Growth } from "@/components/sections/Growth";
-import { Philosophy } from "@/components/sections/Philosophy";
-import { Media } from "@/components/sections/Media";
-// import { Testimonials } from "@/components/sections/Testimonials";
+import { Investors } from "@/components/sections/Investors";
+import { Leadership } from "@/components/sections/Leadership";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { useEffect } from "react";
 
 const Page = () => {
-  const { lang, t } = useLang();
+  const { lang } = useLang();
 
   useEffect(() => {
     document.title =
       lang === "ar"
-        ? "مجموعة حبشي القابضة — باني منصات مؤسسية"
-        : "Hebashi Holding Group — Institutional Platform Builder";
+        ? "مجموعة حبشي القابضة (HHG) — باني منصات مؤسسية"
+        : "Hebashi Holding Group (HHG) — Institutional Platform Builder";
 
     const desc =
       lang === "ar"
-        ? "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو."
-        : "Hebashi Holding Group (HHG) is a diversified international holding platform that builds, scales, and operates integrated business ecosystems across high-growth sectors.";
+        ? "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في 7 دول و8 قطاعات."
+        : "Hebashi Holding Group (HHG) — diversified international holding platform building, scaling, and operating integrated business ecosystems across 6 countries and 8 sectors.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -35,22 +37,24 @@ const Page = () => {
       document.head.appendChild(meta);
     }
     meta.setAttribute("content", desc);
-  }, [lang, t]);
+  }, [lang]);
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />
-      <Expertise />
       <BusinessModel />
-      <Portfolio />
+      <Platforms />
+      <Sectors />
+      <GlobalPresence />
+      <AILayer />
+      <CompetitiveAdvantage />
       <Partnerships />
       <ESG />
       <Growth />
-      <Philosophy />
-      <Media />
-      {/* <Testimonials /> hidden until real testimonials are added */}
+      <Investors />
+      <Leadership />
       <Contact />
       <Footer />
     </main>

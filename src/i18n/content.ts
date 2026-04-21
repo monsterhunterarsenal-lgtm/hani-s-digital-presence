@@ -1,7 +1,18 @@
 export type Lang = "en" | "ar";
 
 export interface Content {
-  nav: { about: string; expertise: string; portfolio: string; model: string; esg: string; growth: string; media: string; testimonials: string; contact: string };
+  nav: {
+    about: string;
+    model: string;
+    platforms: string;
+    sectors: string;
+    presence: string;
+    ai: string;
+    esg: string;
+    investors: string;
+    leadership: string;
+    contact: string;
+  };
   hero: {
     eyebrow: string;
     titleLine1: string;
@@ -14,44 +25,53 @@ export interface Content {
   about: {
     eyebrow: string;
     title: string;
-    lead: string;
     paragraphs: string[];
-    journey: { year: string; place: string; note: string }[];
-    role: string;
-    union: string;
+    principlesTitle: string;
+    principles: { title: string; description: string }[];
   };
-  expertise: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    items: { title: string; description: string }[];
-  };
-  businessModel: {
+  model: {
     eyebrow: string;
     title: string;
     intro: string;
     layers: { title: string; description: string; points: string[] }[];
-    aiTitle: string;
-    aiIntro: string;
-    aiPoints: string[];
-    aiQuote: string;
+    closing: string;
   };
-  portfolio: {
+  platforms: {
     eyebrow: string;
-    sectionNumber: string;
     title: string;
-    titleAccent?: string;
-    titleTail?: string;
     intro: string;
-    principles: { title: string; description: string }[];
-    sectors: string[];
-    sectorsTitle: string;
-    countriesTitle: string;
-    countries: string[];
+    cards: { name: string; tag: string; description: string }[];
+  };
+  sectors: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    groups: { label: string; items: string[] }[];
+  };
+  presence: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    hubLabel: string;
+    countries: { code: string; name: string; hub?: boolean }[];
+    legendActive: string;
+    legendOther: string;
+  };
+  ai: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    points: string[];
+    quote: string;
+  };
+  advantage: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    pillars: { title: string; description: string }[];
   };
   partnerships: {
     eyebrow: string;
-    sectionNumber: string;
     title: string;
     titleAccent: string;
     titleTail: string;
@@ -74,25 +94,22 @@ export interface Content {
     items: string[];
     closing: string;
   };
-  media: {
+  investors: {
     eyebrow: string;
     title: string;
     intro: string;
-    placeholder: string;
-    items: { source: string; title: string; placeholder: boolean }[];
-  };
-  testimonials: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    placeholder: { quote: string; author: string; role: string }[];
-  };
-  philosophy: {
-    eyebrow: string;
-    title: string;
-    pillars: string[];
     quote: string;
-    quoteAuthor: string;
+    ctaDeck: string;
+    ctaMeeting: string;
+  };
+  leadership: {
+    eyebrow: string;
+    title: string;
+    name: string;
+    role: string;
+    union: string;
+    bio: string;
+    council: string;
   };
   contact: {
     eyebrow: string;
@@ -107,142 +124,168 @@ export interface Content {
     emailLabel: string;
     sent: string;
   };
-  footer: { tagline: string; rights: string };
+  footer: {
+    tagline: string;
+    address: string;
+    phone: string;
+    rights: string;
+    resources: string;
+    contactCol: string;
+  };
   langToggle: string;
 }
 
 export const content: Record<Lang, Content> = {
   en: {
-    nav: { about: "Overview", expertise: "Sectors", portfolio: "Geography", model: "Platforms", esg: "ESG", growth: "Strategy", media: "Media", testimonials: "Voices", contact: "Contact" },
+    nav: {
+      about: "About",
+      model: "Model",
+      platforms: "Platforms",
+      sectors: "Sectors",
+      presence: "Global Presence",
+      ai: "AI",
+      esg: "ESG",
+      investors: "Investors",
+      leadership: "Leadership",
+      contact: "Contact",
+    },
     hero: {
-      eyebrow: "● Institutional Platform Builder · Since 2008",
-      titleLine1: "Building Platforms",
-      titleLine2: "That Shape Markets",
+      eyebrow: "● Innovative · Diversified · Leading — Since 2008",
+      titleLine1: "Building Scalable Business Platforms",
+      titleLine2: "Across Emerging Markets",
       subtitle:
-        "Hebashi Holding Group is a diversified international platform — transforming fragmented opportunities into scalable, asset-backed ecosystems enhanced by intelligence, integration, and disciplined execution.",
-      ctaPrimary: "Investor Relations",
-      ctaSecondary: "",
+        "Hebashi Holding Group (HHG) is a diversified international holding platform — building, scaling, and operating integrated business ecosystems across high-growth sectors, powered by assets, intelligence, and disciplined execution.",
+      ctaPrimary: "Explore Our Platforms",
+      ctaSecondary: "For Investors",
       stats: [
-        { value: "2008", label: "FOUNDED" },
+        { value: "2008", label: "ESTABLISHED" },
         { value: "6", label: "COUNTRIES" },
-        { value: "970+", label: "TEAM MEMBERS" },
         { value: "8", label: "CORE SECTORS" },
+        { value: "970+", label: "PROFESSIONALS" },
       ],
     },
     about: {
-      eyebrow: "About",
-      title: "A platform builder. Not a market follower.",
-      lead:
-        "Hebashi Holding Group does not follow markets. It builds the platforms that shape them.",
+      eyebrow: "About HHG",
+      title: "A diversified international holding platform.",
       paragraphs: [
-        "Hebashi Holding Group (HHG) is a diversified international holding platform that builds, scales, and operates integrated business ecosystems across high-growth sectors. Established in 2008, HHG today operates across 6 countries, employs 970+ professionals, and maintains exposure across 8 core industries.",
-        "The Group operates through a centralized holding structure — ensuring disciplined capital allocation, strategic oversight, and scalable value creation across its subsidiaries and platforms. HHG captures value across the full lifecycle: originating, operating, and scaling assets within a unified, intelligence-driven structure.",
-        "Led by Hani Hebashy — Chairman & CEO and President of the Georgian-Arab-African Business Union — the Group is supported by an international advisory council and governance frameworks aligned with global capital markets standards.",
+        "Hebashi Holding Group (HHG) is a diversified international holding platform that builds, scales, and operates integrated business ecosystems across high-growth sectors. Established in 2008, HHG has evolved into a multi-sector investment platform operating across 6 countries, employing 970+ professionals, and spanning 8 core industries.",
+        "The Group operates through a centralized holding structure — ensuring disciplined capital allocation, strategic oversight, and scalable value creation. HHG is positioned as a Platform Builder, transforming fragmented opportunities into scalable, asset-backed ecosystems where capital, infrastructure, and intelligence converge.",
       ],
-      journey: [
-        { year: "2008", place: "Egypt", note: "Founded — youth employment & enterprise" },
-        { year: "2012", place: "Saudi Arabia", note: "CSR & sustainability" },
-        { year: "2015", place: "Qatar & Malaysia", note: "Global exposure" },
-        { year: "Today", place: "Georgia", note: "Strategic hub of Hebashi Holding Group" },
-      ],
-      role: "Chairman & CEO, Hebashi Holding Group",
-      union: "President, Georgian-Arab-African Business Union",
-    },
-    expertise: {
-      eyebrow: "Expertise",
-      title: "Six disciplines. One operating system.",
-      intro:
-        "An integrated capability stack designed to capture value across the full lifecycle — from origination to monetization.",
-      items: [
-        { title: "Platform Creation", description: "Strategic investments in real assets and structuring of scalable, high-potential opportunities." },
-        { title: "Platform Activation", description: "Monetization through integrated operations, services, and diversified revenue models." },
-        { title: "Cross-Border Investment", description: "Hub-and-network expansion across Georgia, the GCC, North Africa and Southeast Asia." },
-        { title: "Capital Markets Readiness", description: "Institutional governance and disciplined capital allocation aligned to global standards." },
-        { title: "AI & Intelligent Systems", description: "AI as a horizontal control layer — investment intelligence, predictive analytics, automation." },
-        { title: "Economic Diplomacy", description: "Leveraging cross-border relationships to unlock opportunity and mitigate geopolitical risk." },
+      principlesTitle: "Core Principles",
+      principles: [
+        { title: "Building Platforms, Not Companies", description: "We architect ecosystems, not standalone businesses — designed to scale across sectors and geographies." },
+        { title: "Thinking in Decades, Acting with Precision", description: "Long-horizon capital deployed with institutional discipline and operational rigor." },
+        { title: "Leveraging Complexity as Advantage", description: "Cross-sector and cross-border integration as a structural moat — not an obstacle." },
       ],
     },
-    businessModel: {
-      eyebrow: "Business Model",
-      title: "A three-layered platform architecture.",
-      intro:
-        "HHG captures value across the full lifecycle — from origination to monetization — through a unified, intelligence-driven structure.",
+    model: {
+      eyebrow: "Operating Model",
+      title: "How we create value.",
+      intro: "HHG operates through a three-layered model — capturing value across the full lifecycle, from origination to monetization.",
       layers: [
         {
-          title: "Platform Creation",
-          description: "Originating value through real assets and structured opportunities.",
-          points: ["Strategic investments in real assets", "Structuring scalable, high-potential opportunities"],
+          title: "Create",
+          description: "Identifying and structuring high-potential opportunities across real assets and growth sectors.",
+          points: ["Strategic investments in real assets", "Structuring scalable opportunities"],
         },
         {
-          title: "Platform Activation",
-          description: "Monetizing assets through integrated operations and services.",
-          points: ["Operations, services, and asset utilization", "Diversified, recurring revenue models"],
+          title: "Activate",
+          description: "Driving monetization through operations, services, and market execution.",
+          points: ["Integrated operations and services", "Diversified revenue streams"],
         },
         {
-          title: "Platform Enablement",
-          description: "Sustaining performance through enabling infrastructure.",
-          points: ["Telecommunications, education, AI-driven systems", "Long-term capability development"],
+          title: "Enable",
+          description: "Supporting platforms through technology, infrastructure, and intelligent systems.",
+          points: ["Telecommunications, education, AI infrastructure", "Long-term capability development"],
         },
       ],
-      aiTitle: "AI as a Strategic Control Layer",
-      aiIntro:
-        "Artificial Intelligence is embedded across all operations as a horizontal capability — a decision-support and control layer enhancing precision, scalability, and timing across markets.",
-      aiPoints: [
-        "Investment intelligence and risk analysis",
-        "Operational optimization and cost efficiency",
-        "Predictive demand and market analytics",
-        "Process automation and performance monitoring",
-      ],
-      aiQuote:
-        "AI functions as a decision-support and control layer — enhancing precision, scalability, and timing across markets.",
+      closing: "A lifecycle-driven model designed for scalability, resilience, and performance.",
     },
-    portfolio: {
+    platforms: {
       eyebrow: "Operating Platforms",
-      sectionNumber: "06",
-      title: "Specialised subsidiaries.",
-      titleAccent: " Centralised ",
-      titleTail: "control.",
-      intro:
-        "HHG executes through specialised subsidiaries and platforms, structured to enable full-cycle value creation — from asset origination to monetisation.",
-      principles: [
-        { title: "Operational Autonomy", description: "Each subsidiary operates with independent execution authority, optimised for its sector and market." },
-        { title: "Centralised Strategic Control", description: "Unified capital allocation, governance, and strategic direction across the Group's holdings." },
-        { title: "Data-Driven Performance Management", description: "Institutional oversight powered by real-time performance data and AI-enabled monitoring systems." },
+      title: "Our specialized platforms.",
+      intro: "A portfolio of specialized subsidiaries delivering execution across sectors — operationally autonomous, strategically aligned.",
+      cards: [
+        { name: "OTI Real Estate", tag: "Real Estate · Development", description: "Real estate development and integrated property services across regional markets." },
+        { name: "ZMC", tag: "Construction · Engineering", description: "Construction and engineering execution platform delivering large-scale projects." },
+        { name: "CTC", tag: "Telecom · Outsourcing", description: "Telecommunications and outsourcing solutions powering enterprise infrastructure." },
+        { name: "Caucasus Paradise", tag: "Hospitality · Tourism", description: "Tourism and hospitality platform anchoring HHG's experience economy footprint." },
       ],
-      sectorsTitle: "Eight core sectors",
-      sectors: [
-        "Investment & Asset Management",
-        "Real Estate Development",
-        "Construction & Engineering",
-        "Hospitality & Tourism",
-        "Telecommunications",
-        "Media & Production",
-        "Education & Development",
-        "Sports Investment",
+    },
+    sectors: {
+      eyebrow: "Sector Exposure",
+      title: "Diversified across eight high-growth industries.",
+      intro: "Organized into three platform families — enabling integration, cross-sector value, and resilient diversification.",
+      groups: [
+        {
+          label: "Asset-Based Platforms",
+          items: ["Real Estate Development", "Construction & Engineering", "Hospitality & Tourism"],
+        },
+        {
+          label: "Service & Infrastructure Platforms",
+          items: ["Telecommunications & Outsourcing", "Media & Production"],
+        },
+        {
+          label: "Capability & Investment Platforms",
+          items: ["Investment & Asset Management", "Education & Development", "Sports Investment"],
+        },
       ],
-      countriesTitle: "Six countries · One hub-and-network model",
-      countries: ["Georgia · Strategic Hub", "United Arab Emirates", "Egypt", "Turkey", "Oman", "Malaysia"],
+    },
+    presence: {
+      eyebrow: "Global Footprint",
+      title: "A hub-and-network model.",
+      intro: "HHG operates through a hub-and-network model with Georgia serving as a strategic gateway connecting regional markets — enabling coordinated expansion and efficient capital deployment.",
+      hubLabel: "Strategic Hub",
+      countries: [
+        { code: "GE", name: "Georgia", hub: true },
+        { code: "AE", name: "United Arab Emirates" },
+        { code: "EG", name: "Egypt" },
+        { code: "TR", name: "Turkey" },
+        { code: "OM", name: "Oman" },
+        { code: "MY", name: "Malaysia" },
+      ],
+      legendActive: "HHG Presence",
+      legendOther: "Global Network",
+    },
+    ai: {
+      eyebrow: "AI Layer",
+      title: "Intelligence as a strategic control layer.",
+      intro: "Artificial Intelligence is embedded across all HHG operations as a horizontal capability — enhancing decision-making, optimizing performance, and enabling scalable growth.",
+      points: [
+        "Investment intelligence and risk analysis",
+        "Predictive demand and market analytics",
+        "Process automation",
+        "Performance monitoring",
+      ],
+      quote: "AI functions as a decision-support and control layer — enhancing precision, scalability, and timing across markets.",
+    },
+    advantage: {
+      eyebrow: "Competitive Advantage",
+      title: "Three pillars of defensibility.",
+      intro: "HHG's differentiation is built on integrated capabilities that compound over time.",
+      pillars: [
+        { title: "Access", description: "Strategic geography and cross-border partnerships unlocking opportunities unavailable to standalone operators." },
+        { title: "Execution", description: "Integrated operating platforms across sectors with proven delivery capability and operational depth." },
+        { title: "Intelligence", description: "AI-driven systems and data infrastructure powering decision-making across the Group." },
+      ],
     },
     partnerships: {
       eyebrow: "Strategic Partnerships",
-      sectionNumber: "08",
       title: "Partnerships as long-term",
       titleAccent: " strategic ",
       titleTail: "assets.",
-      intro:
-        "HHG collaborates with regional and international stakeholders across multiple industries — treating partnerships as long-term institutional assets that compound access, capability, and credibility over time.",
+      intro: "HHG collaborates with regional and international stakeholders — treating partnerships as long-term institutional assets that compound access, capability, and credibility.",
       cards: [
-        { title: "Expanded Market Access", description: "Collaborations that unlock regional and cross-border opportunity sets unavailable to standalone operators." },
-        { title: "Strengthened Execution Capability", description: "Operational partnerships that reinforce delivery capacity, technical depth, and sector specialisation." },
-        { title: "Enhanced Institutional Positioning", description: "Alliances with governments, multilaterals, and capital market participants that elevate the Group's institutional standing." },
+        { title: "Expanded Market Access", description: "Collaborations that unlock regional and cross-border opportunities unavailable to standalone operators." },
+        { title: "Strengthened Execution", description: "Operational partnerships that reinforce delivery capacity, technical depth, and sector specialisation." },
+        { title: "Enhanced Institutional Positioning", description: "Alliances with governments, multilaterals, and capital market participants that elevate institutional standing." },
       ],
       closing: "Partnerships at HHG are not transactional — they are architectural.",
     },
     esg: {
-      eyebrow: "ESG & Impact",
-      title: "Aligned with the UN Sustainable Development Goals.",
-      intro:
-        "HHG embeds ESG as a core operational value, aligning growth with measurable societal impact and progressing toward global disclosure frameworks.",
+      eyebrow: "ESG & SDG Alignment",
+      title: "Sustainable and responsible growth.",
+      intro: "HHG aligns its operations with global ESG frameworks and the UN Sustainable Development Goals (SDGs) — integrating sustainability, governance, and social impact into the business model.",
       pillars: [
         { title: "Economic Growth & Infrastructure", sdg: "SDG 8 · 9", description: "Scalable investments, job creation, and infrastructure development." },
         { title: "Governance & Transparency", sdg: "SDG 16", description: "Compliance, ethical operations, and institutional accountability." },
@@ -257,8 +300,7 @@ export const content: Record<Lang, Content> = {
     growth: {
       eyebrow: "Growth Strategy",
       title: "Toward capital markets readiness.",
-      intro:
-        "HHG's forward strategy converges integrated platforms, AI infrastructure, and institutional governance — moving the Group toward capital market participation.",
+      intro: "HHG's forward strategy converges integrated platforms, AI infrastructure, and institutional governance — moving the Group toward capital market participation.",
       items: [
         "Scaling integrated platforms across sectors",
         "Expanding asset-backed investment structures",
@@ -266,47 +308,29 @@ export const content: Record<Lang, Content> = {
         "Strengthening institutional partnerships",
         "Advancing toward IPO readiness",
       ],
-      closing: "Institutional-grade · Investor-ready · ESG & SDG aligned · AI-positioned · IPO-direction ready.",
+      closing: "Institutional-Grade · Investor-Ready · ESG & SDG Aligned · AI-Positioned · IPO-Direction Ready.",
     },
-    media: {
-      eyebrow: "Platform Pillars",
-      title: "Four pillars. One institutional platform.",
-      intro: "Hebashi Holding Group converges asset-backed platforms, intelligence, cross-border execution, and disciplined growth — captured in a single visual language.",
-      placeholder: "Pillar",
-      items: [
-        { source: "Platform Building", title: "Asset-backed ecosystems across high-growth sectors", placeholder: false },
-        { source: "AI Control Layer", title: "Investment intelligence, predictive analytics, automation", placeholder: false },
-        { source: "Cross-Border Network", title: "Hub-and-network model across six countries", placeholder: false },
-        { source: "Capital Markets Path", title: "Institutional governance toward IPO readiness", placeholder: false },
-      ],
+    investors: {
+      eyebrow: "For Investors",
+      title: "A scalable, asset-driven holding platform.",
+      intro: "HHG represents a next-generation institutional platform where capital, infrastructure, and intelligence converge to create and shape high-growth markets. For institutional engagement, partnership inquiries, and capital markets discussions.",
+      quote: "HHG does not follow markets. It builds the platforms that shape them.",
+      ctaDeck: "Request Investor Deck",
+      ctaMeeting: "Schedule a Meeting",
     },
-    testimonials: {
-      eyebrow: "Voices",
-      title: "Trusted by partners across continents.",
-      intro: "Add real testimonials from investors, partners, and institutional stakeholders.",
-      placeholder: [
-        { quote: "Add a testimonial quote from a partner, investor, or institutional stakeholder.", author: "Add Name", role: "Add Title, Organization" },
-        { quote: "Add a second testimonial. Keep voice authentic — short, specific, attributable.", author: "Add Name", role: "Add Title, Organization" },
-        { quote: "Add a third testimonial reflecting cross-border execution or long-term partnership.", author: "Add Name", role: "Add Title, Organization" },
-      ],
-    },
-    philosophy: {
-      eyebrow: "Philosophy",
-      title: "Building platforms, not companies.",
-      pillars: [
-        "Building platforms, not companies.",
-        "Thinking in decades, acting with precision.",
-        "Leveraging complexity as advantage.",
-        "Partnership-driven growth.",
-      ],
-      quote:
-        "We are not building for the present moment. We are building platforms that anticipate the future — where capital, opportunity, and intelligence converge to shape what comes next.",
-      quoteAuthor: "Hani Hebashy",
+    leadership: {
+      eyebrow: "Leadership & Governance",
+      title: "Institutional governance.",
+      name: "Hani Hebashy",
+      role: "Chairman & CEO, Hebashi Holding Group",
+      union: "President, Georgian-Arab-African Business Union",
+      bio: "Leading HHG with a vision focused on building scalable, future-ready platforms across global markets — leveraging economic diplomacy to facilitate cross-border investment and unlock strategic opportunities.",
+      council: "Supported by an international advisory council and institutional governance frameworks aligned with global capital markets standards.",
     },
     contact: {
-      eyebrow: "Investor Relations",
+      eyebrow: "Get in Touch",
       title: "Engage with Hebashi Holding Group.",
-      intro: "For institutional investors, strategic partners, and capital market counterparties.",
+      intro: "For general inquiries, partnerships, or institutional engagement.",
       name: "Full name",
       email: "Email address",
       company: "Company / Organization",
@@ -317,123 +341,144 @@ export const content: Record<Lang, Content> = {
       sent: "Thank you. Your message has been received.",
     },
     footer: {
-      tagline: "HHG does not follow markets. It builds the platforms that shape them.",
+      tagline: "Innovative, Diversified & Leading — Building integrated platforms for long-term value.",
+      address: "12th Merab Aleksidze, Tbilisi, Georgia",
+      phone: "+995 555 659 000",
       rights: "All rights reserved.",
+      resources: "Resources",
+      contactCol: "Contact",
     },
     langToggle: "العربية",
   },
   ar: {
-    nav: { about: "نظرة عامة", expertise: "القطاعات", portfolio: "الجغرافيا", model: "المنصات", esg: "الاستدامة", growth: "النمو", media: "الإعلام", testimonials: "آراء", contact: "تواصل" },
+    nav: {
+      about: "نبذة",
+      model: "النموذج",
+      platforms: "المنصات",
+      sectors: "القطاعات",
+      presence: "الحضور العالمي",
+      ai: "الذكاء الاصطناعي",
+      esg: "الاستدامة",
+      investors: "المستثمرون",
+      leadership: "القيادة",
+      contact: "تواصل",
+    },
     hero: {
-      eyebrow: "● باني منصات مؤسسية · منذ 2008",
-      titleLine1: "نبني منصات",
-      titleLine2: "تصنع الأسواق",
+      eyebrow: "● مبتكرة · متنوعة · رائدة — منذ ٢٠٠٨",
+      titleLine1: "نبني منصات أعمال قابلة للتوسع",
+      titleLine2: "في الأسواق الناشئة",
       subtitle:
-        "مجموعة حبشي القابضة منصة دولية متنوعة — تحوّل الفرص المتفرقة إلى منظومات قابلة للتوسع، مدعومة بالأصول، ومُعزَّزة بالذكاء والتكامل والتنفيذ المنضبط.",
-      ctaPrimary: "علاقات المستثمرين",
-      ctaSecondary: "",
+        "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة — تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو، مدعومة بالأصول والذكاء والتنفيذ المنضبط.",
+      ctaPrimary: "استكشف منصاتنا",
+      ctaSecondary: "للمستثمرين",
       stats: [
         { value: "٢٠٠٨", label: "سنة التأسيس" },
         { value: "٦", label: "دول" },
-        { value: "+٩٧٠", label: "أعضاء الفريق" },
         { value: "٨", label: "قطاعات أساسية" },
+        { value: "+٩٧٠", label: "محترف" },
       ],
     },
     about: {
-      eyebrow: "نبذة",
-      title: "باني منصات. لا تابع للأسواق.",
-      lead:
-        "مجموعة حبشي القابضة لا تتبع الأسواق. بل تبني المنصات التي تصنعها.",
+      eyebrow: "عن المجموعة",
+      title: "منصة قابضة دولية متنوعة.",
       paragraphs: [
-        "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو. تأسست عام 2008، وتعمل اليوم في 6 دول، وتضم أكثر من 970 محترفًا، وتغطي 8 قطاعات أساسية.",
-        "تعمل المجموعة من خلال هيكل قابض مركزي يضمن التخصيص المنضبط لرأس المال والإشراف الاستراتيجي وخلق قيمة قابلة للتوسع عبر شركاتها ومنصاتها. تحتجز المجموعة القيمة عبر دورة الحياة الكاملة: من النشأة إلى التشغيل والتوسع داخل بنية موحّدة مدفوعة بالذكاء.",
-        "بقيادة هاني حبشي — رئيس مجلس الإدارة والرئيس التنفيذي ورئيس اتحاد الأعمال الجورجي العربي الإفريقي — تستند المجموعة إلى مجلس استشاري دولي وأطر حوكمة متوافقة مع معايير أسواق المال العالمية.",
+        "مجموعة حبشي القابضة (HHG) منصة قابضة دولية متنوعة تبني وتشغّل وتوسّع منظومات أعمال متكاملة في القطاعات عالية النمو. تأسست عام 2008، وتطوّرت لتصبح منصة استثمارية متعددة القطاعات تعمل في 6 دول، وتضم أكثر من 970 محترفًا، وتغطي 8 قطاعات أساسية.",
+        "تعمل المجموعة من خلال هيكل قابض مركزي يضمن تخصيصًا منضبطًا لرأس المال وإشرافًا استراتيجيًا وخلق قيمة قابلة للتوسع. تتموضع المجموعة كباني منصات — تحوّل الفرص المتفرقة إلى منظومات قابلة للتوسع مدعومة بالأصول، حيث يلتقي رأس المال والبنية التحتية والذكاء.",
       ],
-      journey: [
-        { year: "٢٠٠٨", place: "مصر", note: "التأسيس — تشغيل الشباب وريادة الأعمال" },
-        { year: "٢٠١٢", place: "السعودية", note: "المسؤولية المجتمعية والاستدامة" },
-        { year: "٢٠١٥", place: "قطر وماليزيا", note: "حضور دولي" },
-        { year: "اليوم", place: "جورجيا", note: "المحور الاستراتيجي للمجموعة" },
-      ],
-      role: "رئيس مجلس الإدارة والرئيس التنفيذي، مجموعة حبشي القابضة",
-      union: "رئيس اتحاد الأعمال الجورجي العربي الإفريقي",
-    },
-    expertise: {
-      eyebrow: "الخبرات",
-      title: "ستة تخصصات. منظومة واحدة.",
-      intro: "منظومة قدرات متكاملة مصممة لاحتجاز القيمة عبر دورة الحياة كاملة — من النشأة إلى التحقيق.",
-      items: [
-        { title: "إنشاء المنصات", description: "استثمارات استراتيجية في الأصول الحقيقية وهيكلة فرص قابلة للتوسع." },
-        { title: "تفعيل المنصات", description: "تحقيق الإيرادات من خلال عمليات وخدمات متكاملة ونماذج دخل متنوعة." },
-        { title: "الاستثمار العابر للحدود", description: "نموذج توسعي قائم على المحاور والشبكات بين جورجيا والخليج وشمال إفريقيا وجنوب شرق آسيا." },
-        { title: "الجاهزية لأسواق المال", description: "حوكمة مؤسسية وتخصيص منضبط لرأس المال متوافق مع المعايير العالمية." },
-        { title: "الذكاء الاصطناعي والأنظمة الذكية", description: "الذكاء الاصطناعي كطبقة تحكم أفقية — تحليلات وتنبؤات وأتمتة." },
-        { title: "الدبلوماسية الاقتصادية", description: "الاستفادة من العلاقات العابرة للحدود لفتح فرص واحتواء المخاطر الجيوسياسية." },
-      ],
-    },
-    businessModel: {
-      eyebrow: "نموذج الأعمال",
-      title: "بنية منصة من ثلاث طبقات.",
-      intro: "تحتجز المجموعة القيمة عبر دورة الحياة الكاملة — من النشأة إلى التحقيق — من خلال بنية موحّدة مدفوعة بالذكاء.",
-      layers: [
-        { title: "إنشاء المنصات", description: "توليد القيمة من الأصول الحقيقية والفرص المهيكلة.", points: ["استثمارات استراتيجية في الأصول الحقيقية", "هيكلة فرص قابلة للتوسع وعالية الإمكانات"] },
-        { title: "تفعيل المنصات", description: "تحقيق الإيرادات من الأصول عبر عمليات وخدمات متكاملة.", points: ["العمليات والخدمات واستثمار الأصول", "نماذج دخل متنوعة ومتكررة"] },
-        { title: "تمكين المنصات", description: "استدامة الأداء عبر بنية تحتية مُمكِّنة.", points: ["الاتصالات والتعليم والأنظمة الذكية", "تطوير القدرات على المدى الطويل"] },
-      ],
-      aiTitle: "الذكاء الاصطناعي كطبقة تحكم استراتيجية",
-      aiIntro: "الذكاء الاصطناعي مدمج في كل العمليات كقدرة أفقية — طبقة دعم قرار وتحكم تعزّز الدقة والقابلية للتوسع وحُسن التوقيت.",
-      aiPoints: [
-        "ذكاء استثماري وتحليل مخاطر",
-        "تحسين العمليات وكفاءة التكلفة",
-        "تحليلات تنبؤية للطلب والأسواق",
-        "أتمتة العمليات ومراقبة الأداء",
-      ],
-      aiQuote: "يعمل الذكاء الاصطناعي كطبقة دعم قرار وتحكم — تعزز الدقة والقابلية للتوسع وحُسن التوقيت في الأسواق.",
-    },
-    portfolio: {
-      eyebrow: "المنصات التشغيلية",
-      sectionNumber: "٠٦",
-      title: "شركات متخصصة.",
-      titleAccent: " تحكم ",
-      titleTail: "مركزي.",
-      intro: "تنفّذ المجموعة من خلال شركات ومنصات متخصصة، مهيكلة لتمكين خلق القيمة عبر دورة الحياة الكاملة — من نشأة الأصل إلى تحقيق الإيرادات.",
+      principlesTitle: "المبادئ الأساسية",
       principles: [
-        { title: "استقلالية تشغيلية", description: "كل شركة تابعة تعمل بصلاحية تنفيذية مستقلة، مُحسَّنة لقطاعها وسوقها." },
-        { title: "تحكم استراتيجي مركزي", description: "تخصيص موحّد لرأس المال، حوكمة، وتوجيه استراتيجي عبر محفظة المجموعة." },
-        { title: "إدارة أداء مدفوعة بالبيانات", description: "إشراف مؤسسي مدعوم ببيانات أداء فورية وأنظمة مراقبة مُمكَّنة بالذكاء الاصطناعي." },
+        { title: "نبني منصات لا شركات", description: "نصمم منظومات لا أعمالاً منفردة — قابلة للتوسع عبر القطاعات والجغرافيات." },
+        { title: "نفكر بعقود ونتحرك بدقة", description: "رأس مال طويل الأجل يُنشر بانضباط مؤسسي ودقة تشغيلية." },
+        { title: "التعقيد ميزة لا عائق", description: "التكامل بين القطاعات والحدود كميزة بنيوية." },
       ],
-      sectorsTitle: "ثمانية قطاعات رئيسية",
-      sectors: [
-        "الاستثمار وإدارة الأصول",
-        "التطوير العقاري",
-        "الإنشاءات والهندسة",
-        "الضيافة والسياحة",
-        "الاتصالات",
-        "الإعلام والإنتاج",
-        "التعليم والتطوير",
-        "الاستثمار الرياضي",
+    },
+    model: {
+      eyebrow: "نموذج التشغيل",
+      title: "كيف نخلق القيمة.",
+      intro: "تعمل المجموعة عبر نموذج من ثلاث طبقات — يحتجز القيمة عبر دورة الحياة الكاملة من النشأة إلى التحقيق.",
+      layers: [
+        { title: "الإنشاء", description: "تحديد وهيكلة فرص عالية الإمكانات في الأصول الحقيقية والقطاعات النامية.", points: ["استثمارات استراتيجية في الأصول الحقيقية", "هيكلة فرص قابلة للتوسع"] },
+        { title: "التفعيل", description: "تحقيق الإيرادات عبر العمليات والخدمات والتنفيذ في الأسواق.", points: ["عمليات وخدمات متكاملة", "تدفقات دخل متنوعة"] },
+        { title: "التمكين", description: "دعم المنصات عبر التقنية والبنية التحتية والأنظمة الذكية.", points: ["اتصالات وتعليم وبنية ذكاء اصطناعي", "تطوير قدرات طويل الأجل"] },
       ],
-      countriesTitle: "ست دول · نموذج محاور وشبكات",
-      countries: ["جورجيا · المحور الاستراتيجي", "الإمارات العربية المتحدة", "مصر", "تركيا", "عُمان", "ماليزيا"],
+      closing: "نموذج مدفوع بدورة الحياة، مصمم للتوسع والمرونة والأداء.",
+    },
+    platforms: {
+      eyebrow: "المنصات التشغيلية",
+      title: "منصاتنا المتخصصة.",
+      intro: "محفظة من الشركات التابعة المتخصصة تقدّم تنفيذًا عبر القطاعات — مستقلة تشغيليًا ومتسقة استراتيجيًا.",
+      cards: [
+        { name: "OTI العقارية", tag: "عقارات · تطوير", description: "تطوير عقاري وخدمات عقارية متكاملة في الأسواق الإقليمية." },
+        { name: "ZMC", tag: "إنشاءات · هندسة", description: "منصة إنشاءات وهندسة تنفّذ مشاريع كبرى." },
+        { name: "CTC", tag: "اتصالات · إسناد", description: "حلول اتصالات وإسناد تشغّل البنية التحتية للمؤسسات." },
+        { name: "Caucasus Paradise", tag: "ضيافة · سياحة", description: "منصة سياحة وضيافة ترسّخ حضور المجموعة في اقتصاد التجربة." },
+      ],
+    },
+    sectors: {
+      eyebrow: "القطاعات",
+      title: "تنوّع عبر ثمانية قطاعات عالية النمو.",
+      intro: "منظَّمة في ثلاث عائلات منصات — تتيح التكامل والقيمة العابرة للقطاعات والتنوّع المرن.",
+      groups: [
+        { label: "منصات قائمة على الأصول", items: ["التطوير العقاري", "الإنشاءات والهندسة", "الضيافة والسياحة"] },
+        { label: "منصات الخدمات والبنية التحتية", items: ["الاتصالات والإسناد", "الإعلام والإنتاج"] },
+        { label: "منصات القدرات والاستثمار", items: ["الاستثمار وإدارة الأصول", "التعليم والتطوير", "الاستثمار الرياضي"] },
+      ],
+    },
+    presence: {
+      eyebrow: "الانتشار العالمي",
+      title: "نموذج محاور وشبكات.",
+      intro: "تعمل المجموعة بنموذج محاور وشبكات تكون فيه جورجيا بوابة استراتيجية تربط الأسواق الإقليمية — ما يتيح التوسع المنسّق والنشر الفعّال لرأس المال.",
+      hubLabel: "محور استراتيجي",
+      countries: [
+        { code: "GE", name: "جورجيا", hub: true },
+        { code: "AE", name: "الإمارات" },
+        { code: "EG", name: "مصر" },
+        { code: "TR", name: "تركيا" },
+        { code: "OM", name: "عُمان" },
+        { code: "MY", name: "ماليزيا" },
+      ],
+      legendActive: "حضور HHG",
+      legendOther: "الشبكة العالمية",
+    },
+    ai: {
+      eyebrow: "طبقة الذكاء الاصطناعي",
+      title: "الذكاء كطبقة تحكم استراتيجية.",
+      intro: "الذكاء الاصطناعي مدمج عبر جميع عمليات المجموعة كقدرة أفقية — يعزّز اتخاذ القرار ويحسّن الأداء ويُمكّن النمو القابل للتوسع.",
+      points: [
+        "ذكاء استثماري وتحليل مخاطر",
+        "تحليلات تنبؤية للطلب والأسواق",
+        "أتمتة العمليات",
+        "مراقبة الأداء",
+      ],
+      quote: "يعمل الذكاء الاصطناعي كطبقة دعم قرار وتحكم — يعزز الدقة والقابلية للتوسع وحُسن التوقيت.",
+    },
+    advantage: {
+      eyebrow: "الميزة التنافسية",
+      title: "ثلاث ركائز للدفاعية.",
+      intro: "تتميز المجموعة بقدرات متكاملة تتراكم مع الزمن.",
+      pillars: [
+        { title: "الوصول", description: "جغرافيا استراتيجية وشراكات عابرة للحدود تفتح فرصًا غير متاحة للجهات المنفردة." },
+        { title: "التنفيذ", description: "منصات تشغيلية متكاملة عبر القطاعات بقدرة تسليم مثبتة وعمق تشغيلي." },
+        { title: "الذكاء", description: "أنظمة مدفوعة بالذكاء الاصطناعي وبنية بيانات تدعم القرار في كل المجموعة." },
+      ],
     },
     partnerships: {
       eyebrow: "الشراكات الاستراتيجية",
-      sectionNumber: "٠٨",
       title: "الشراكات بوصفها أصولًا",
       titleAccent: " استراتيجية ",
       titleTail: "طويلة الأجل.",
-      intro: "تتعاون المجموعة مع شركاء إقليميين ودوليين عبر قطاعات متعددة — وتعامل الشراكات كأصول مؤسسية طويلة الأجل تُراكم الوصول والقدرة والمصداقية مع الوقت.",
+      intro: "تتعاون المجموعة مع شركاء إقليميين ودوليين — تعامل الشراكات كأصول مؤسسية طويلة الأجل تُراكم الوصول والقدرة والمصداقية.",
       cards: [
         { title: "توسيع الوصول إلى الأسواق", description: "تعاونات تفتح فرصًا إقليمية وعابرة للحدود لا تتاح للجهات المنفردة." },
-        { title: "تعزيز قدرة التنفيذ", description: "شراكات تشغيلية تعزّز سعة التنفيذ والعمق التقني والتخصص القطاعي." },
-        { title: "تقوية الموقع المؤسسي", description: "تحالفات مع حكومات وجهات متعددة الأطراف ومشاركين في أسواق المال ترفع من المكانة المؤسسية للمجموعة." },
+        { title: "تعزيز التنفيذ", description: "شراكات تشغيلية تعزّز سعة التسليم والعمق التقني والتخصص القطاعي." },
+        { title: "تقوية الموقع المؤسسي", description: "تحالفات مع حكومات وجهات متعددة الأطراف ومشاركين في أسواق المال ترفع المكانة المؤسسية." },
       ],
       closing: "الشراكات في المجموعة ليست معاملاتية — بل بنيوية.",
     },
     esg: {
-      eyebrow: "الاستدامة والأثر",
-      title: "متوافقون مع أهداف الأمم المتحدة للتنمية المستدامة.",
-      intro: "تتبنى المجموعة معايير ESG كقيمة تشغيلية أساسية، وتربط النمو بأثر مجتمعي قابل للقياس، مع التقدم نحو أطر الإفصاح العالمية.",
+      eyebrow: "الاستدامة وأهداف التنمية",
+      title: "نمو مستدام ومسؤول.",
+      intro: "تتوافق المجموعة مع أطر ESG العالمية وأهداف الأمم المتحدة للتنمية المستدامة — بدمج الاستدامة والحوكمة والأثر الاجتماعي في نموذج الأعمال.",
       pillars: [
         { title: "النمو الاقتصادي والبنية التحتية", sdg: "SDG 8 · 9", description: "استثمارات قابلة للتوسع وخلق فرص عمل وتطوير بنية تحتية." },
         { title: "الحوكمة والشفافية", sdg: "SDG 16", description: "الالتزام والممارسات الأخلاقية والمساءلة المؤسسية." },
@@ -443,12 +488,12 @@ export const content: Record<Lang, Content> = {
         { title: "رأس المال البشري والشمول", sdg: "SDG 4 · 5 · 10", description: "تمكين المواهب والتنوع وتكافؤ الفرص." },
       ],
       frameworks: "نتقدم نحو التوافق مع:",
-      frameworkList: ["مبادرة الإبلاغ العالمية (GRI)", "معايير أداء IFC", "أطر الإفصاح الدولية للاستدامة"],
+      frameworkList: ["مبادرة الإبلاغ العالمية (GRI)", "معايير أداء IFC", "أطر الإفصاح الدولية"],
     },
     growth: {
       eyebrow: "استراتيجية النمو",
       title: "نحو الجاهزية لأسواق المال.",
-      intro: "تجمع استراتيجية المجموعة بين المنصات المتكاملة والبنية التحتية الذكية والحوكمة المؤسسية — تمهيدًا للمشاركة في أسواق المال.",
+      intro: "تجمع استراتيجية المجموعة بين المنصات المتكاملة وبنية الذكاء الاصطناعي والحوكمة المؤسسية — تمهيدًا للمشاركة في أسواق المال.",
       items: [
         "توسيع المنصات المتكاملة عبر القطاعات",
         "توسيع هياكل الاستثمار المدعومة بالأصول",
@@ -458,45 +503,27 @@ export const content: Record<Lang, Content> = {
       ],
       closing: "بمعايير مؤسسية · جاهز للمستثمرين · متوافق مع ESG وأهداف التنمية · مُمكَّن بالذكاء الاصطناعي · جاهز اتجاهيًا للطرح.",
     },
-    media: {
-      eyebrow: "ركائز المنصة",
-      title: "أربع ركائز. منصة مؤسسية واحدة.",
-      intro: "تجمع مجموعة حبشي القابضة منصات مدعومة بالأصول والذكاء والتنفيذ العابر للحدود والنمو المنضبط — ضمن لغة بصرية واحدة.",
-      placeholder: "ركيزة",
-      items: [
-        { source: "بناء المنصات", title: "منظومات مدعومة بالأصول في قطاعات عالية النمو", placeholder: false },
-        { source: "طبقة تحكم بالذكاء الاصطناعي", title: "ذكاء استثماري وتحليلات تنبؤية وأتمتة", placeholder: false },
-        { source: "شبكة عابرة للحدود", title: "نموذج محاور وشبكات عبر ست دول", placeholder: false },
-        { source: "مسار أسواق المال", title: "حوكمة مؤسسية نحو الجاهزية للطرح العام", placeholder: false },
-      ],
+    investors: {
+      eyebrow: "للمستثمرين",
+      title: "منصة قابضة قابلة للتوسع ومدعومة بالأصول.",
+      intro: "تمثّل المجموعة منصة مؤسسية من الجيل التالي يلتقي فيها رأس المال والبنية التحتية والذكاء لصياغة الأسواق عالية النمو. للتواصل المؤسسي والاستفسارات حول الشراكة وأسواق المال.",
+      quote: "المجموعة لا تتبع الأسواق. بل تبني المنصات التي تصنعها.",
+      ctaDeck: "اطلب عرض المستثمرين",
+      ctaMeeting: "حدّد موعدًا للقاء",
     },
-    testimonials: {
-      eyebrow: "آراء",
-      title: "موضع ثقة شركاء حول العالم.",
-      intro: "أضف شهادات حقيقية من المستثمرين والشركاء والجهات المؤسسية.",
-      placeholder: [
-        { quote: "أضف شهادة من شريك أو مستثمر أو جهة مؤسسية.", author: "الاسم", role: "المنصب، الجهة" },
-        { quote: "أضف شهادة ثانية بصوت أصيل — قصيرة، محددة، وقابلة للنسب.", author: "الاسم", role: "المنصب، الجهة" },
-        { quote: "أضف شهادة ثالثة تعكس التنفيذ العابر للحدود أو الشراكة طويلة الأجل.", author: "الاسم", role: "المنصب، الجهة" },
-      ],
-    },
-    philosophy: {
-      eyebrow: "الفلسفة",
-      title: "نبني منصات، لا شركات.",
-      pillars: [
-        "نبني منصات، لا شركات.",
-        "نفكر بعقود، ونتحرك بدقة.",
-        "نحوّل التعقيد إلى ميزة.",
-        "نمو مدفوع بالشراكات.",
-      ],
-      quote:
-        "نحن لا نبني للحظة الراهنة. نبني منصات تستشرف المستقبل — حيث يلتقي رأس المال والفرصة والذكاء ليصنعوا ما هو آتٍ.",
-      quoteAuthor: "هاني حبشي",
+    leadership: {
+      eyebrow: "القيادة والحوكمة",
+      title: "حوكمة مؤسسية.",
+      name: "هاني حبشي",
+      role: "رئيس مجلس الإدارة والرئيس التنفيذي، مجموعة حبشي القابضة",
+      union: "رئيس اتحاد الأعمال الجورجي العربي الإفريقي",
+      bio: "يقود المجموعة برؤية تركّز على بناء منصات قابلة للتوسع وجاهزة للمستقبل عبر الأسواق العالمية — مع توظيف الدبلوماسية الاقتصادية لتسهيل الاستثمار العابر للحدود وفتح فرص استراتيجية.",
+      council: "تستند المجموعة إلى مجلس استشاري دولي وأطر حوكمة مؤسسية متوافقة مع معايير أسواق المال العالمية.",
     },
     contact: {
-      eyebrow: "علاقات المستثمرين",
+      eyebrow: "تواصل",
       title: "تواصل مع مجموعة حبشي القابضة.",
-      intro: "للمستثمرين المؤسسيين والشركاء الاستراتيجيين ونظرائنا في أسواق المال.",
+      intro: "للاستفسارات العامة والشراكات والتواصل المؤسسي.",
       name: "الاسم الكامل",
       email: "البريد الإلكتروني",
       company: "الشركة / الجهة",
@@ -507,8 +534,12 @@ export const content: Record<Lang, Content> = {
       sent: "شكرًا لك. تم استلام رسالتك.",
     },
     footer: {
-      tagline: "المجموعة لا تتبع الأسواق. بل تبني المنصات التي تصنعها.",
+      tagline: "مبتكرة، متنوعة، ورائدة — نبني منصات متكاملة لقيمة طويلة الأجل.",
+      address: "12 ميراب ألكسيدزه، تبليسي، جورجيا",
+      phone: "+995 555 659 000",
       rights: "جميع الحقوق محفوظة.",
+      resources: "روابط",
+      contactCol: "تواصل",
     },
     langToggle: "English",
   },

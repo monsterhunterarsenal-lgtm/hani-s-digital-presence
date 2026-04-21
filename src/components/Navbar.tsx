@@ -16,14 +16,15 @@ export const Navbar = () => {
 
   const links = [
     { id: "about", label: t.nav.about },
-    { id: "model", label: t.nav.expertise },
-    { id: "portfolio", label: t.nav.portfolio },
-    { id: "esg", label: t.nav.model },
-    { id: "growth", label: lang === "ar" ? "القيادة" : "Leadership" },
+    { id: "platforms", label: t.nav.platforms },
+    { id: "sectors", label: t.nav.sectors },
+    { id: "presence", label: t.nav.presence },
+    { id: "esg", label: t.nav.esg },
+    { id: "investors", label: t.nav.investors },
     { id: "contact", label: t.nav.contact },
   ];
 
-  const irLabel = lang === "ar" ? "علاقات المستثمرين" : "Investor Relations";
+  const irLabel = t.nav.investors;
 
   return (
     <header
@@ -33,8 +34,8 @@ export const Navbar = () => {
     >
       <div className="container-x flex items-center justify-between h-20">
         <a href="#top" className="flex items-center gap-3 group">
-          <span className="w-9 h-9 grid place-items-center bg-gradient-gold text-primary-foreground font-display text-lg font-bold">
-            H
+          <span className="w-10 h-10 grid place-items-center bg-gradient-gold text-primary-foreground font-display text-base font-bold">
+            HHG
           </span>
           <div className="leading-tight">
             <div
@@ -52,7 +53,7 @@ export const Navbar = () => {
           </div>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.id}
@@ -74,14 +75,14 @@ export const Navbar = () => {
             {t.langToggle}
           </button>
           <a
-            href="#contact"
+            href="#investors"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs uppercase border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
             style={{ letterSpacing: "0.18em" }}
           >
             {irLabel} →
           </a>
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="xl:hidden p-2 text-foreground"
             onClick={() => setOpen((p) => !p)}
             aria-label="Menu"
           >
@@ -91,7 +92,7 @@ export const Navbar = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden glass border-t hairline">
+        <div className="xl:hidden glass border-t hairline">
           <div className="container-x py-6 flex flex-col gap-5">
             {links.map((l) => (
               <a
