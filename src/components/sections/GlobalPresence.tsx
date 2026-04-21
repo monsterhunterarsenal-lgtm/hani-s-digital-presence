@@ -38,7 +38,7 @@ export const GlobalPresence = () => {
     let cancelled = false;
     fetch(GEO_URL)
       .then((r) => r.json())
-      .then((topo: Topology) => {
+      .then((topo: any) => {
         if (cancelled) return;
         const fc = feature(topo, topo.objects.countries) as unknown as FeatureCollection<Geometry, { id: string }>;
         setCountries(fc.features);
