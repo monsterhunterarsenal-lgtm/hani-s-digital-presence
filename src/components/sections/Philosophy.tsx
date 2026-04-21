@@ -14,7 +14,7 @@ export const Philosophy = () => {
           </Reveal>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-border max-w-5xl mx-auto mb-24">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border max-w-6xl mx-auto mb-24">
           {t.philosophy.pillars.map((line, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div className="bg-background p-10 md:p-12 text-center h-full">
