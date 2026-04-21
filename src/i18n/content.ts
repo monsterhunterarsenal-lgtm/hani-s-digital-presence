@@ -38,13 +38,26 @@ export interface Content {
   };
   portfolio: {
     eyebrow: string;
+    sectionNumber: string;
     title: string;
+    titleAccent?: string;
+    titleTail?: string;
     intro: string;
-    platforms: { name: string; tag: string; description: string }[];
+    principles: { title: string; description: string }[];
     sectors: string[];
     sectorsTitle: string;
     countriesTitle: string;
     countries: string[];
+  };
+  partnerships: {
+    eyebrow: string;
+    sectionNumber: string;
+    title: string;
+    titleAccent: string;
+    titleTail: string;
+    intro: string;
+    cards: { title: string; description: string }[];
+    closing: string;
   };
   esg: {
     eyebrow: string;
