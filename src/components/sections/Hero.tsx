@@ -82,14 +82,14 @@ export const Hero = () => {
             transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative border hairline-strong overflow-hidden">
+            <div className="relative border hairline-strong overflow-hidden aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5]">
               <img
                 src={heroChairman}
                 alt="HHG Chairman at Tbilisi headquarters"
-                className="w-full h-auto object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-[60%_center] lg:object-center"
                 loading="eager"
               />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-[10px] uppercase tracking-[0.3em] text-primary">
                 Tbilisi · Headquarters
               </div>
