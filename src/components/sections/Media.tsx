@@ -2,11 +2,12 @@ import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
 import { useLightbox, ZoomableImage } from "@/components/Lightbox";
 import forbes from "@/assets/media-forbes.jpeg";
-import magazineCover from "@/assets/media-magazine-cover.jpeg";
-import phoneForbes from "@/assets/media-phone-forbes.jpeg";
-import trophy from "@/assets/portfolio-trophy.jpeg";
+import platformBuilding from "@/assets/media-platform-building.jpg";
+import aiIntelligence from "@/assets/media-ai-intelligence.jpg";
+import crossBorder from "@/assets/media-cross-border.jpg";
+import growthIpo from "@/assets/media-growth-ipo.jpg";
 
-const pressImages = [forbes, magazineCover, phoneForbes, trophy];
+const pressImages = [platformBuilding, aiIntelligence, crossBorder, growthIpo];
 
 export const Media = () => {
   const { t } = useLang();
