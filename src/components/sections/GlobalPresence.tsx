@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { geoEqualEarth, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
-import type { Topology } from "topojson-specification";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
