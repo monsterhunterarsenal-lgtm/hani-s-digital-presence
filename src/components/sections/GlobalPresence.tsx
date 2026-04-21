@@ -1,18 +1,33 @@
 import { useLang } from "@/i18n/LanguageContext";
 import { Reveal } from "@/components/Reveal";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
-// HHG-presence ISO codes
-const ACTIVE = new Set(["GE", "AE", "EG", "TR", "OM", "MY"]);
-const HUB = "GE";
+// World atlas (countries-110m) hosted via CDN
+const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+// HHG-presence ISO numeric codes (matching world-atlas country IDs)
+// GE=268, AE=784, EG=818, TR=792, OM=512, MY=458
+const ACTIVE_IDS = new Set(["268", "784", "818", "792", "512", "458"]);
+const HUB_ID = "268"; // Georgia
+
+type CountryMarker = {
+  code: string;
+  name: string;
+  coords: [number, number]; // [lng, lat]
+  hub?: boolean;
+};
+
+const MARKERS: CountryMarker[] = [
+  { code: "GE", name: "Georgia", coords: [43.3569, 42.3154], hub: true },
+  { code: "AE", name: "UAE", coords: [54.3773, 24.4539] },
+  { code: "EG", name: "Egypt", coords: [31.2357, 30.0444] },
+  { code: "TR", name: "Turkey", coords: [35.2433, 38.9637] },
+  { code: "OM", name: "Oman", coords: [58.5577, 23.5859] },
+  { code: "MY", name: "Malaysia", coords: [101.9758, 4.2105] },
+];
 
 export const GlobalPresence = () => {
   const { t } = useLang();
-
-  const colorFor = (code: string) => {
-    if (code === HUB) return "hsl(var(--primary))";
-    if (ACTIVE.has(code)) return "hsl(var(--primary) / 0.55)";
-    return "hsl(var(--foreground) / 0.12)";
-  };
 
   return (
     <section id="presence" className="py-28 md:py-36 relative">
@@ -28,79 +43,85 @@ export const GlobalPresence = () => {
         {/* Map */}
         <Reveal delay={0.1}>
           <div className="relative border hairline bg-card p-4 md:p-8 mb-10">
-            <svg
-              viewBox="0 0 1000 500"
-              className="w-full h-auto"
-              role="img"
-              aria-label="HHG global presence map"
-            >
-              {/* Simplified continent silhouettes — abstract gold/dim representation */}
-              <defs>
-                <linearGradient id="oceanFade" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--surface-2))" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="hsl(var(--surface-1))" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <rect width="1000" height="500" fill="url(#oceanFade)" />
+            <div className="w-full" aria-label="HHG global presence map" role="img">
+              <ComposableMap
+                projection="geoEqualEarth"
+                projectionConfig={{ scale: 175 }}
+                width={980}
+                height={460}
+                style={{ width: "100%", height: "auto" }}
+              >
+                <Geographies geography={GEO_URL}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      const id = String(geo.id);
+                      const isHub = id === HUB_ID;
+                      const isActive = ACTIVE_IDS.has(id);
+                      const fill = isHub
+                        ? "hsl(var(--primary) / 0.85)"
+                        : isActive
+                        ? "hsl(var(--primary) / 0.45)"
+                        : "hsl(var(--foreground) / 0.07)";
+                      const stroke = isActive
+                        ? "hsl(var(--primary))"
+                        : "hsl(var(--foreground) / 0.15)";
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={fill}
+                          stroke={stroke}
+                          strokeWidth={0.4}
+                          style={{
+                            default: { outline: "none" },
+                            hover: { outline: "none", fill },
+                            pressed: { outline: "none", fill },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
 
-              {/* Abstract continents — grey base */}
-              <g fill="hsl(var(--foreground) / 0.08)" stroke="hsl(var(--foreground) / 0.15)" strokeWidth="0.5">
-                {/* North America */}
-                <path d="M 80 110 Q 130 80 200 100 L 270 130 L 290 200 L 240 250 L 170 240 L 120 200 Q 80 170 80 110 Z" />
-                {/* South America */}
-                <path d="M 250 280 L 310 270 L 330 350 L 300 430 L 260 450 L 240 380 Z" />
-                {/* Europe */}
-                <path d="M 480 90 L 560 100 L 580 150 L 540 180 L 490 170 L 470 130 Z" />
-                {/* Africa */}
-                <path d="M 490 200 L 580 200 L 610 280 L 580 380 L 530 410 L 490 360 L 470 280 Z" />
-                {/* Asia */}
-                <path d="M 590 90 L 800 100 L 870 160 L 880 230 L 820 270 L 720 250 L 640 220 L 600 160 Z" />
-                {/* SE Asia / Oceania */}
-                <path d="M 800 300 L 870 290 L 890 340 L 850 360 L 810 350 Z" />
-                <path d="M 830 400 L 900 395 L 920 430 L 870 450 L 830 430 Z" />
-              </g>
-
-              {/* Active country markers — gold dots with halo */}
-              {[
-                { code: "GE", x: 605, y: 155, label: "Georgia" },
-                { code: "AE", x: 645, y: 215, label: "UAE" },
-                { code: "EG", x: 555, y: 215, label: "Egypt" },
-                { code: "TR", x: 580, y: 165, label: "Turkey" },
-                { code: "OM", x: 660, y: 230, label: "Oman" },
-                { code: "MY", x: 815, y: 285, label: "Malaysia" },
-              ].map((c) => (
-                <g key={c.code}>
-                  <circle
-                    cx={c.x}
-                    cy={c.y}
-                    r={c.code === HUB ? 14 : 10}
-                    fill={colorFor(c.code)}
-                    opacity={0.18}
-                  >
-                    <animate attributeName="r" values={`${c.code === HUB ? 14 : 10};${c.code === HUB ? 22 : 18};${c.code === HUB ? 14 : 10}`} dur="3s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.18;0;0.18" dur="3s" repeatCount="indefinite" />
-                  </circle>
-                  <circle
-                    cx={c.x}
-                    cy={c.y}
-                    r={c.code === HUB ? 6 : 4.5}
-                    fill={colorFor(c.code)}
-                    stroke="hsl(var(--background))"
-                    strokeWidth="1"
-                  />
-                  <text
-                    x={c.x + (c.code === HUB ? 12 : 9)}
-                    y={c.y + 4}
-                    fill="hsl(var(--foreground))"
-                    fontSize="11"
-                    fontFamily="var(--font-body)"
-                    style={{ letterSpacing: "0.05em" }}
-                  >
-                    {c.label}
-                  </text>
-                </g>
-              ))}
-            </svg>
+                {MARKERS.map((m) => (
+                  <Marker key={m.code} coordinates={m.coords}>
+                    <circle
+                      r={m.hub ? 11 : 8}
+                      fill="hsl(var(--primary))"
+                      opacity={0.2}
+                    >
+                      <animate
+                        attributeName="r"
+                        values={`${m.hub ? 11 : 8};${m.hub ? 18 : 14};${m.hub ? 11 : 8}`}
+                        dur="3s"
+                        repeatCount="indefinite"
+                      />
+                      <animate
+                        attributeName="opacity"
+                        values="0.2;0;0.2"
+                        dur="3s"
+                        repeatCount="indefinite"
+                      />
+                    </circle>
+                    <circle
+                      r={m.hub ? 4.5 : 3.5}
+                      fill="hsl(var(--primary))"
+                      stroke="hsl(var(--background))"
+                      strokeWidth={1}
+                    />
+                    <text
+                      x={m.hub ? 8 : 6}
+                      y={3}
+                      fill="hsl(var(--foreground))"
+                      fontSize={9}
+                      style={{ letterSpacing: "0.05em", paintOrder: "stroke", stroke: "hsl(var(--background))", strokeWidth: 2 }}
+                    >
+                      {m.name}
+                    </text>
+                  </Marker>
+                ))}
+              </ComposableMap>
+            </div>
 
             {/* Legend */}
             <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t hairline">
